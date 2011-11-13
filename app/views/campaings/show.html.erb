@@ -1,0 +1,104 @@
+<CENTER><h1>Campa&ntilde;a</h1></center>
+<TABLE ALIGN="CENTER">
+
+<TR>
+<TD WIDTH=100>
+  <p>
+  <b>Nombre:</b>
+ </p>
+</TD>
+
+<TD WIDTH=100>
+  <p>
+  <%=h @campaing.name %>
+</p>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH=100>
+  <p>
+  <b>Lugar:</b>
+</p>
+</TD>
+
+<TD WIDTH=100>
+  <p>
+ 
+  <%=h @campaing.location %>
+</p>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH=100>
+  <p>
+  <b>Descripcion:</b>
+
+</p>
+</TD>
+
+<TD WIDTH=100>
+  <p>
+    <%=h @campaing.description %>
+</p>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH=100>
+  <p>
+  <b>Fecha de inicio:</b>
+  
+</p>
+</TD>
+
+<TD WIDTH=100>
+  <p>
+
+  <%=h @campaing.date_ini %>
+</p>
+</TD>
+</TR>
+
+
+<TR>
+<TD WIDTH=100>
+  
+<p>
+  <b>Fecha de finalizacion:</b>
+</p>
+</TD>
+
+<TD WIDTH=100>
+  
+<p>
+  <%=h @campaing.date_end %>
+</p>
+</TD>
+</TR>
+<TR>
+<TD WIDTH=100>
+  <p>
+  <b>Responsable:</b>
+  
+</p>
+</TD>
+
+<TD WIDTH=100>
+  <p>
+  <%=h @campaing.responsible %>
+</p>
+</TD>
+</TR>
+
+  <tr align="right">
+    <td colspan="2">
+      <% if current_user %>
+            <%= link_to 'Editar', edit_campaing_path %>|
+          <% end %>
+      <%= link_to 'Volver', campaings_path %>
+    </td>
+  </tr>
+</TABLE>
+

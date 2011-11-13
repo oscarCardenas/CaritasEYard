@@ -1,0 +1,73 @@
+<CENTER><h1>Nueva Campa&ntilde;a</h1></center>
+
+<% form_for(@campaing) do |f| %>
+  <%= f.error_messages %>
+
+  <TABLE   ALIGN="CENTER">
+
+    <TR>
+          <td>* Nombre</td>
+
+      <TD >
+          <%= f.text_field :name %>
+      </TD>
+    </TR>
+
+    <TR>
+          <td>* Lugar</td>   
+      <TD >
+          <%= f.text_field :location %>
+      </TD>
+    </TR>
+
+    <TR>
+     <td>&nbsp&nbsp&nbspDescripción</td>
+
+      <TD >
+          <%= f.text_area :description , :rows=>6, :cols=>22  %>
+      </TD>
+    </TR>
+
+
+    <TR>
+   <td>&nbsp&nbsp&nbspFecha de Inicio</td>
+
+      <TD >       
+
+          <%= f.date_select :date_ini %>  
+
+      </TD>
+    </TR>
+
+    <TR>
+     <td>&nbsp&nbsp&nbspFecha de Finalización</td>
+
+      <TD >
+          <%= f.date_select :date_end %>
+      </TD>
+    </TR>
+
+    <TR>
+       <td>* Responsable</td>
+
+      <TD >
+          <%= f.text_field :responsible %>
+      </TD>
+    </TR>    
+        
+         <tr align="right">
+      <td colspan="2">
+        <%= f.submit 'Registrar' %>
+        <button type="reset">Limpiar</button>
+        <%= link_to 'Volver', campaings_path %>
+      </td>
+    </tr>
+    
+        <tr>
+      <td>*  Estos campos son obligatorios</td>
+    </tr>
+
+  </TABLE>   
+ 
+<% end %> 
+

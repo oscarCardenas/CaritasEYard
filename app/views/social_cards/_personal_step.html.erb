@@ -1,0 +1,70 @@
+<h2>Informacion De La Parroquia</h2>
+  <table width="50%" border="0">
+  <tr>
+    <td width="15"> Parroquia</td>
+    <td width="35%"> <%= f.text_field :parish_church %></td>
+   </tr>
+  <tr>
+    <td width="15%">Fecha</td>
+    <td width="35%"> <%= f.date_select :date,:start_year => 1935 %></td>
+  </tr>
+</table>
+<br />
+<h2>Informacion Personal</h2>
+<table  border="0">
+  <tr>
+    <td width="15%"><p>*Nombre</p></td>
+    <td width="35%"><%= f.text_field :name %></td>
+    <td width="15%">*Estado Civil</td>
+    <td width="35%"><%= f.text_field :marital_status %></td>
+   </tr>
+  <tr>
+     <td width="15%">*CI</td>
+    <td width="35%"><%= f.text_field :identity_card %></td>
+    <td width="15%">*Sexo</td>
+    <td width="35%">masculino
+      <%= f.radio_button(:gender, "masculino") %>
+      femenino
+      <%= f.radio_button(:gender, "femenino") %></td>
+  </tr>
+  <tr>
+    <td>Fecha De Nacimiento</td>
+    <td><%= f.date_select :birthday, :start_year => 1935 %></td>
+    <td >*Lugar De Nacimiento</td>
+    <td ><%= f.text_field :birthday_location %></td>
+  </tr>
+  <tr>
+    <td>*Domicilio</td>
+    <td><%= f.text_field :address %></td>
+    <td >Referencia De Ubicacion</td>
+    <td ><%= f.text_field :location_reference %></td>
+  </tr>
+  <tr>
+    <td>Telefono Fijo</td>
+    <td><%= f.text_field :phone %></td>
+    <td >Celular</td>
+    <td ><%= f.text_field :movil %></td>
+  </tr>
+  <tr>
+    <td>Grado Escolar</td>
+    <td><%= f.text_field :grade_school %></td>
+    <td >*Ocupacion</td>
+    <td ><%= f.text_field :occupation %></td>
+  </tr>
+  <tr>
+    <td>*Total De Miembros En la Familia </td>
+    <td><%= f.text_field :family_members %></td>
+    <td >Parroquia A la Que Pertenece</td>
+    <td ><%= f.text_field :parish_belongs %></td>
+  </tr>
+
+  <tr>
+    <td>Derivado Canalizado Por</td>
+    <td colspan="5"><%= f.text_field :derivative_by %></td>
+  </tr>
+  <tr>
+    <td>Historia Familiar</td>
+    <td colspan="5"><%= f.text_area :family_history, :rows =>3 %></td>
+  </tr>
+</table>
+* Estos Campos Son Requeridos

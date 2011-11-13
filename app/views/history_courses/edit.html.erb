@@ -1,0 +1,29 @@
+<h1>Actualizar Historia de Curso</h1>
+
+<% form_for(@history_course) do |f| %>
+  <%= f.error_messages %>
+<table>
+    <tr><td>
+        Grupo:</td><td>
+<%= f.text_field :idGroup %></td></tr>
+    <tr><td>
+    Parroquia:</td><td>
+    <%= f.text_field :idParish %></td></tr>
+    <tr><td>
+    Instructor:</td><td>
+    <%= f.text_field :instructor %></td></tr>
+    <tr><td>
+    Fecha del Curso:</td><td>
+    <%= f.date_select :dateCourse %></td></tr>
+    <tr><td>
+    Curso:</td><td>
+    <%= f.text_field :idCourse %></td></tr>
+  
+</table>
+  <p>
+    <%= f.submit 'Actualizar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Mostrar', @history_course %> |
+<%= link_to 'Atras', history_courses_path %>

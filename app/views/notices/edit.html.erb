@@ -1,0 +1,54 @@
+<h1>Editing notice</h1>
+
+<% form_for(@notice, :html => {:multipart => true}) do |f| %>
+<%= f.error_messages %>
+  <table>
+    <tr>  
+      <td>* <%= "Título" %></td>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    
+    <tr>
+      <td><%= "Descripción"  %> </td>
+      <td><%= f.text_area :description, :size => "100x10"%></td>
+    </tr>
+    
+    <tr>  
+      <td><%= "Imagen" %></td>
+      <% if @notice.notice_photo %>
+      <td><%=  image_tag url_for_file_column("notice", "notice_photo"), :size=>"300x200" %>
+      <% else %>
+      <td><%=  image_tag "NoticeDefault.png", :size=>"300x200" %>
+      <% end %>
+      <br>
+      <%= file_column_field "notice", "notice_photo"%> </td>
+    </tr>
+
+    <tr>
+      <td>* <%= "Tipo Noticia" %> </td>
+      <td><%= f.select  :notice_type, Notice::NOTICES_TYPES %></td>
+    </tr>
+
+    <tr>
+      <td><%= "Publicándose" %></td>
+      <td><%= f.check_box :is_published %></td>
+    </tr>
+
+    <tr>
+      <td><%= "Última fecha" %> </td>
+      <td><%= f.date_select :last_date %></td>
+    </tr>
+    
+    <tr align="right">
+      <td colspan="2">
+        <%= f.submit 'Guardar' %>
+        <%= link_to 'Ver', :action => :show %>
+        <%= link_to 'Cancelar', notices_path %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>*  Estos campos son obligatorios</td>
+    </tr>
+  </table>
+<% end %>

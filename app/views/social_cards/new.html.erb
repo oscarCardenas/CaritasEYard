@@ -1,0 +1,131 @@
+<h1>Nuevo Ficha Social</h1>
+
+<% form_for(@social_card) do |f| %>
+  <%= f.error_messages %>
+
+<h2>Informacion De La Parroquia</h2>
+  <table width="50%" border="0">
+  <tr>
+    <td width="15"> Parroquia</td>
+    <td width="35%"> <%= f.text_field :parish_church %></td>
+   </tr>
+  <tr>
+    <td width="15%">Fecha</td>
+    <td width="35%"> <%= f.date_select :date,:start_year => 1935 %></td>
+  </tr>
+</table>
+<br />
+<h2>Informacion Personal</h2>
+<table  border="0">
+  <tr>
+    <td width="15%"><p>*Nombre</p></td>
+    <td width="35%"><%= f.text_field :name %></td>
+    <td width="15%">*Estado Civil</td>
+    <td width="35%"><%= f.text_field :marital_status %></td>
+   </tr>
+  <tr>
+     <td width="15%">*CI</td>
+    <td width="35%"><%= f.text_field :identity_card %></td>
+    <td width="15%">*Sexo</td>
+    <td width="35%">masculino
+      <%= f.radio_button(:gender, "masculino") %>
+      femenino
+      <%= f.radio_button(:gender, "femenino") %></td>
+  </tr>
+  <tr>
+    <td>Fecha De Nacimiento</td>
+    <td><%= f.date_select :birthday, :start_year => 1935 %></td>
+    <td >*Lugar De Nacimiento</td>
+    <td ><%= f.text_field :birthday_location %></td>
+  </tr>
+  <tr>
+    <td>*Domicilio</td>
+    <td><%= f.text_field :address %></td>
+    <td >Referencia De Ubicacion</td>
+    <td ><%= f.text_field :location_reference %></td>
+  </tr>
+  <tr>
+    <td>Telefono Fijo</td>
+    <td><%= f.text_field :phone %></td>
+    <td >Celular</td>
+    <td ><%= f.text_field :movil %></td>
+  </tr>
+  <tr>
+    <td>Grado Escolar</td>
+    <td><%= f.text_field :grade_school %></td>
+    <td >*Ocupacion</td>
+    <td ><%= f.text_field :occupation %></td>
+  </tr>
+  <tr>
+    <td>*Total De Miembros En la Familia </td>
+    <td><%= f.text_field :family_members %></td>
+    <td >Parroquia A la Que Pertenece</td>
+    <td ><%= f.text_field :parish_belongs %></td>
+  </tr>
+
+  <tr>
+    <td>Derivado Canalizado Por</td>
+    <td colspan="5"><%= f.text_field :derivative_by %></td>
+  </tr>
+  <tr>
+    <td>Historia Familiar</td>
+    <td colspan="5"><%= f.text_area :family_history, :rows =>3 %></td>
+  </tr>
+</table>
+ <h2>Informacion De Referencia</h2>
+  <table  border="0">
+  <tr>
+    <td width="21%">*Persona De Referencia</td>
+    <td><%= f.text_field :reference_person %></td>
+    <td>Edad</td>
+    <td><%= f.text_field :age_reference %></td>
+  </tr>
+  <tr>
+    <td>*Domicilio </td>
+    <td colspan="3"><%= f.text_field :address_reference %></td>
+  </tr>
+  <tr>
+    <td>*Telefono</td>
+    <td width="29%"><%= f.text_field :phone_reference %></td>
+    <td width="21%">Celular</td>
+    <td width="29%"><%= f.text_field :movil_reference %></td>
+  </tr>
+  <tr>
+    <td>*Ocupacion</td>
+    <td colspan="3"><%= f.text_field :occupation_reference %></td>
+  </tr>
+</table>
+<br />
+  <h2>Otros Datos</h2>
+<table  border="0">
+  <tr>
+    <td width="21%">Caso </td>
+    <td width="79%">
+     Nuevo <%= f.radio_button(:type_of_case, "Nuevo") %>
+      Conocido
+      <%= f.radio_button(:type_of_case, "Conocido") %></td>
+  </tr>
+  <tr>
+    <td><p>Ha Recibido Ayuda En Otras Instituciones O Parroquias?
+    </p></td>
+    <td>Si <%= f.radio_button(:did_you_get_another_help, "Si") %>
+      No
+      <%= f.radio_button(:did_you_get_another_help, "No") %></td>
+  </tr>
+  <tr>
+    <td><p><br />
+    De Que tipo?</p></td>
+    <td><%= f.text_area :what_kind, :rows =>3 %></td>
+  </tr>
+</table>  
+<table>
+    <tr align="right">
+      <td colspan="2">
+        <%= f.submit 'Registrar' %>
+        <button type="reset">Limpiar</button>
+        <%= link_to 'Cancelar', social_cards_path %>
+      </td>
+    </tr>
+
+  </table>
+<% end %>

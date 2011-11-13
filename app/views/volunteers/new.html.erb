@@ -1,0 +1,95 @@
+<h1>Crear Voluntario</h1>
+
+<% form_for(@volunteer, :html => {:multipart => true}) do |f| %>
+  <%= f.error_messages %>
+  <table>
+
+    <tr>     
+      <td>* Nombre</td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td>* Apellido Paterno</td>
+      <td><%= f.text_field :last_name %></td>
+    </tr>
+
+    <tr>
+      <td>* Apellido Materno</td>
+      <td><%= f.text_field :second_last_name %></td>
+    </tr>
+
+    <tr>
+      <td>&nbsp&nbsp&nbspProfesion</td>
+      <td><%= f.text_field :profession %></td>
+    </tr>
+
+    <tr>
+      <td>&nbsp&nbsp&nbspTelefono</td>
+      <td><%= f.text_field :phone_number %></td>
+    </tr>
+
+    <tr>
+      <td>&nbsp&nbsp&nbspCelular</td>
+      <td><%= f.text_field :movil %></td>
+    </tr>
+
+    <tr>
+      <td>* Fecha de Nacimiento</td>
+      <td><%= f.date_select :date_of_birth,  :start_year => 1935%></td>            
+    </tr>
+    <tr>
+      <td>* Genero</td>          
+      <td>masculino
+      <%= f.radio_button(:genre, "masculino") %>         
+      femenino
+      <%= f.radio_button(:genre, "femenino",:checked=>true) %></td>
+    </tr>
+
+    <tr>
+      <td>* Cargo</td>
+      <td><%= f.text_field :position %></td>
+    </tr>
+    <tr>
+      <td>&nbsp&nbsp&nbspEmail</td>
+      <td><%= f.text_field :email %></td>
+    </tr>  
+  
+      <tr>
+        <td>&nbsp&nbsp&nbspGrupo</td>
+        <td>
+          <select name="volunteer[group_id]" >
+            <option value="0"></option>
+            <% if @groups 
+            @groups.each do |group| %>
+              <option value="<%=group.id%>" >
+                <%=group.name%>
+              </option>
+            <%end%>              
+              <%end%>   
+          </select>
+        </td>
+      </tr>
+</tr>
+      <tr>
+      <td><%= "Fotografia Del Voluntario"  %> </td>
+      <td><%= file_column_field "volunteer",  "volunteer_photo" %></td>
+    </tr>
+      <tr>
+        <td>*  Estos campos son obligatorios</td>
+      </tr>
+    <tr align="right">
+      <td colspan="2">
+        <%= f.submit 'Registrar' %>
+        <button type="reset">Limpiar</button>
+        <%= link_to 'Cancelar', volunteers_path %>
+      </td>
+    </tr>
+    
+      <tr>
+      <td>*  Estos campos son obligatorios</td>
+    </tr>
+  </table>
+  
+
+<% end %>
+

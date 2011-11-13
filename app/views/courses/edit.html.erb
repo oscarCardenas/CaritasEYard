@@ -1,0 +1,39 @@
+<h1>Actualizar Curso</h1>
+
+<% form_for(@course) do |f| %>
+  <%= f.error_messages %>
+
+ 
+ <TABLE   ALIGN="CENTER">
+
+    <TR>
+      <td>* Nombre</td>
+      <TD >
+          <%= f.text_field :name %>
+      </TD>
+    </TR>
+
+    <TR>
+      <td>* Descripcion</td> 
+      <TD >        
+          <%= f.text_area :description %>        
+      </TD>
+    </TR>
+    
+        <tr align="right">
+      <td colspan="2">
+        <%= f.submit 'Actualizar' %>
+        <%= link_to 'Ver', :action => :show %>
+        <%= link_to 'Volver', courses_path %>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>*  Estos campos son obligatorios</td>
+    </tr>
+     
+   </TABLE>  
+  
+  
+  
+<% end %>

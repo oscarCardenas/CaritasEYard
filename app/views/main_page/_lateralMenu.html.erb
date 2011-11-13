@@ -1,0 +1,34 @@
+<div id="notice">
+
+  <div id="lateralMenu">
+   <h3>Campañas</h3>
+    <ul>
+      <% Campaing.find_last_five.each do |campaing| %>
+        <li>          
+          <%= link_to "#{campaing.name}" "<span>#{truncate(campaing.description, :length => 100)}", :controller => "campaings", :action => "show_public", :id =>campaing %>
+        </li>
+      <% end %>
+      <li><%=link_to "Ver Todos", campaings_path%></li>
+    </ul>
+    <h3>Ultimas noticias</h3>
+    <ul>
+      <% Notice.find_last_five.each do |notice| %>
+        <li><%= link_to "#{notice.title}" "<span>#{truncate(notice.description, :length => 100)}", :controller => "notices", :action => "show_public", :id =>notice %></li>
+      <%end %>
+      <li><%= link_to 'Ver Todos', notices_path %></li>
+
+    </ul>
+    <h3>Obras Sociales</h3>
+
+    <ul>
+      <% SocialWork.find_last_five.each do |social_work| %>
+        <li>
+          <%= link_to "#{social_work.to_lable}" "<span>Ubicacion: #{social_work.location}", :controller => "social_works", :action => "show_public", :id =>social_work %>
+          <% end %>
+        </li>
+
+      <li><%= link_to 'Ver Todos', social_works_path %></li>
+    </ul>
+  </div>
+
+</div>

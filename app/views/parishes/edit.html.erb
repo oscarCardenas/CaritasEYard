@@ -1,0 +1,88 @@
+<h1>Editar Parroquia</h1>
+
+<% form_for(@parish, :html => {:multipart => true}) do |p| %>
+  <%= p.error_messages %>
+    <table>
+      <tr>
+        <td>*Nombre Parroquia</td>
+        <td><%= p.text_field :parish_name %></td>
+      </tr>
+      <tr>
+        <td>*Ubicacion</td>
+        <td><%= p.text_field :ubication %></td>
+      </tr>
+      <tr>
+        <tr>
+        <td>*Vicaria a la que Pertenece:</td>
+        <td><select name="parish[vicariou_id]">
+            <% @vicariou.each do |vicariou| %>
+              <option value="<%=vicariou.id%>" <%='selected' if vicariou.id == @parish.vicariou_id %>>
+               <%=vicariou.name_vicariou%>
+              </option>
+            <%end%>
+          </select></td>
+      </tr>
+      <tr>
+        <td>*Transporte</td>
+        <td><%= p.text_field :transport %></td>
+      </tr>
+      <tr>
+        <td>*Telefono</td>
+        <td><%= p.text_field :telephone %></td>
+      </tr>
+      <tr>
+        <td>Nombre del Contacto</td>
+        <td><%= p.text_field :contact %></td>
+      </tr>
+      <tr>
+        <td>Telefono del Contacto</td>
+        <td><%= p.text_field :contact_telephone %></td>
+      </tr>
+      <tr>
+        <td>*Nombre del Parroco</td>
+        <td>
+          <select name="parish[pastor_id]">
+            <% @pastor.each do |pastor| %>
+              <option value="<%=pastor.id%>" <%='selected' if pastor.id == @parish.pastor_id %>>
+               <%=pastor.name+" "+pastor.primary_last_name+" "+pastor.second_last_name%>
+              </option>
+            <%end%>
+          </select>
+        </td>
+      </tr>
+          <tr>
+      <td>* <%= "Estado" %> </td>
+      <td><%= p.select  :current_state, Parish::PARISH_STATES %></td>
+    </tr>
+      
+      <tr>
+        <td>*Sensibilizada</td>
+        <td><%= p.check_box :sensitize %></td>
+      </tr>
+      <tr>  
+      <td><%= "Fotografia De La Parroquia" %></td>
+      <% if @parish.parish_photo %>
+      <td><%=  image_tag url_for_file_column("parish", "parish_photo"), :size=>"300x200" %>
+      <% else %>
+      <td>No Esta Disponible La Imagen
+      <% end %>
+      <br>
+      <%= file_column_field "parish", "parish_photo"%> </td>
+    </tr>
+      
+      <tr>
+        <td>*  Estos campos son obligatorios</td>
+      </tr>
+
+      <tr align="right">
+        <td colspan="2">
+          <%= link_to 'Ver', @parish %> 
+          <%= p.submit 'Guardar' %>
+          <%= link_to 'Cancelar', parishes_path %>
+        </td>
+      </tr>
+    </table>
+
+<% end %>
+
+

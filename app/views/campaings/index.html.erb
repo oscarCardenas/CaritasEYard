@@ -1,0 +1,76 @@
+<h1>Campaña</h1>
+
+<p>
+  <% form_tag campaings_path, :method => 'get' do %>
+    Nombre: <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :name => nil %>
+  <% end %>
+</p>
+
+<%#*<table>%>
+  <%#*<tr>%>
+    <%#*<td><center>Buscar Por:</center></td>%>
+    <%#*<td colspan="2">%>
+      <%#*<select>%>  
+        <%#*<option id="nombre"> Nombre </option>%>
+        <%#*<option id="lugar"> Lugar </option>%>
+      <%#*</select>%>
+    <%#*</td>%>
+  <%#*</tr>%>
+  <%#*<tr>%>
+    <%#*<td>Ingrese el valor:</td>%>
+    <%#*<td><input type="text" id="busqueda"/></td>%>
+    <%#*<td><%= submit_tag "Buscar", :name => nil %>
+  <%#*</tr>%>
+<%#*</table>%>
+<br/>
+
+ 
+<br/>
+<br/>
+
+
+
+<table>
+  <tr align="right">
+    <td>
+      <% if current_user %>
+        <%= button_to 'Registrar Campa&ntilde;a', new_campaing_path %>
+      <%end%>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <table border="3">
+        <tr id = 'head-table'>
+          <th>Nombre</th>
+          <th>Lugar</th>
+          <th>Descripcion</th>
+          <th>Fecha de inicio</th>
+          <th>Fecha de finalizacion</th>
+          <th>Responsable</th>
+          <% if current_user %>
+            <th colspan="2">Acciones</th>
+            <%end%>
+        </tr>
+
+        <% @campaings.each do |campaing| %>
+          <tr>
+            <td><%=link_to campaing.name, campaing %></td>
+            <td><%=h campaing.location %></td>
+            <td><%=h campaing.description %></td>
+            <td><%=h campaing.date_ini %></td>
+            <td><%=h campaing.date_end %></td>
+            <td><%=h campaing.responsible %></td> 
+            <% if current_user %>
+              <td><%= link_to 'Editar', edit_campaing_path(campaing) %></td> 
+              <%end%>
+          </tr>
+        <% end %>
+          
+      </table>
+      
+    </td>      
+  </tr>  
+</table>
+<br/>

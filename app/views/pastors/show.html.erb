@@ -1,0 +1,44 @@
+<h1>Ver Párroco</h1>
+
+
+<table>
+
+  <tr>
+    <td>Nombre</td>
+    <td><%=h @pastor.name %></td>
+  </tr>
+
+  <tr>
+    <td>Apellido paterno</td>
+    <td><%=h @pastor.primary_last_name %></td>
+  </tr>
+
+  <tr>
+    <td>Apellido materno</td>
+    <td><%=h @pastor.second_last_name %></td>
+  </tr>  
+  <tr>
+    <td>
+
+      <b>Fecha de Nacimiento:</b></td><td>
+      <%=h @pastor.date_of_birth.strftime("%d de %B") %>
+    </td>
+  </tr>
+  <tr>
+    <td>Telefono</td>
+    <td><%=h @pastor.phone_number %></td>
+  </tr>  
+  
+  <tr>
+    <td>Celular</td>
+    <td><%=h @pastor.cellphone_number %></td>
+  </tr>  
+  
+  <tr align="right">
+    <td colspan="2">
+      <%= link_to 'Editar', edit_pastor_path(@pastor) %> |
+      <%= link_to 'Volver', pastors_path %>
+    </td>
+  </tr>
+
+</table>

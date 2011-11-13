@@ -1,0 +1,34 @@
+<h1>Lista De Fichas Sociales</h1>
+
+<table>
+  <tr align="right">
+    <td>
+      <%=button_to 'Crear Ficha Social', new_social_card_path %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+
+      <table border="3">
+        <tr id = 'head-table'>
+          <th>Nombre</th>
+          <th>Parroquia</th>
+          <th >Acciones</th>
+        </tr>
+
+       <% @social_cards.each do |social_card| %>
+          <tr>
+            <td><%= link_to social_card.name,social_card %></td>
+            <td><%=h social_card.parish_church%></td>
+            <td><%= link_to 'Editar', edit_social_card_path(social_card) %></td>
+           
+          </tr>
+        <% end %>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+<br />
+

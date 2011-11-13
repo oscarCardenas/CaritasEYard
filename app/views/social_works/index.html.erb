@@ -1,0 +1,44 @@
+<h1>Obra Social</h1>
+
+<p>
+  <% form_tag social_works_path, :method => 'get' do %>
+    Parametro: <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :name => nil %>
+  <% end %>
+</p>
+
+<table>
+  <tr>
+    <td align="RIGHT">
+      <%= button_to 'Crear Obra Social', new_social_work_path %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <table border ="3">
+        <tr id="head-table">
+          <th>Nombre</th>
+          <th>Responsable</th>
+          <th>Ubicacion</th>
+          <th>Tetefono</th>
+          <th>Celular</th>
+          <th colspan="3">Acciones</th>
+        </tr>
+        <% @social_works.each do |social_work| %>
+          <tr>
+            <td><%=link_to (h social_work.name), social_work %></td>
+            <td><%=h social_work.responsible %></td>
+            <td><%=h social_work.location %></td>
+            <td><%=h social_work.phone %></td>
+            <td><%=h social_work.movil %></td>
+            <td><%= link_to 'Ver', social_work %></td>
+            <td><%= link_to 'Editar', edit_social_work_path(social_work) %></td>
+            <td><%= link_to 'Eliminar', social_work, :confirm => 'Esta seguro?', :method => :delete %></td>
+          </tr>
+        <% end %>
+  </tr>
+</table>
+</td>
+</tr>
+</table>
+<br />

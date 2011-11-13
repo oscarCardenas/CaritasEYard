@@ -1,0 +1,16 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+Gemfile.lock
+doc/api
+doc/app
+*.swp
+*~
+.DS_Store
+nbproject/*
+nbproject/**/*
+coverage/*
+public/system/*
+config/database.yml
+.idea

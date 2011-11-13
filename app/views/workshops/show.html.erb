@@ -1,0 +1,63 @@
+<h1>Ver Taller</h1>
+<table>
+  <tr>
+    <td>
+      <b>Parroquia:</b>
+    </td>
+    <% @parish.each do |parish| 
+      if parish.id == @workshop.parish_id
+      %>
+    
+        <td><%= link_to parish.parish_name,parish %></td>
+      <%end
+    end%>
+  </tr>
+  <tr>
+    <td>
+      <b>Parroco:</b>
+    </td>
+
+
+    <td><%=h @pastor.name+" "+@pastor.primary_last_name+" "+@pastor.second_last_name  %></td>
+
+  </tr>
+  <tr>
+    <td>
+      <b>Estado de parroquia:</b>
+    </td>
+
+
+    <td><%=h @parish1.current_state%></td>
+
+  </tr>
+  <tr>
+    <td>
+      <b>Vicaria a la que pertenece:</b>
+    </td> 
+    <td><%=h  @vicariou.name_vicariou%></td>      
+  <tr>
+    <td>
+      <b>Encargado:</b> </td><td>
+      <%=h @workshop.in_charge %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Curso:</b> </td><td>
+      <%=h @workshop.course %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Observaciones:</b> </td><td>
+      <%=h @workshop.observations %>
+    </td>
+  </tr>
+   
+  <tr align="right">
+    <td colspan="2">
+      <%= link_to 'Editar', edit_workshop_path(@workshop) %> |
+      <%= link_to 'Atras', workshops_path %>      
+    </td>
+  </tr>
+</table>

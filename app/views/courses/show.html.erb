@@ -1,0 +1,42 @@
+
+<CENTER><h1>Cursos</h1></center>
+<TABLE ALIGN="CENTER">
+
+<TR>
+<TD WIDTH=100>
+  <p>
+  <b>Nombre:</b>
+ </p>
+</TD>
+
+<TD WIDTH=100>
+  <p>
+  <%=h @course.name %>
+</p>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH=250>
+  <p>
+  <b>Descripcion:</b>
+</p>
+</TD>
+
+<TD WIDTH=250>
+  <p>
+  <%=h @course.description %>
+</p>
+</TD>
+
+</tr>
+
+  <tr align="right">
+    <td colspan="2">
+      
+      <%= link_to 'Editar', edit_course_path %>|
+      
+      <%= link_to 'Volver', courses_path %>
+    </td>
+  </tr>
+</TABLE>

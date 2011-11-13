@@ -1,0 +1,28 @@
+<h1>Listing history_courses</h1>
+
+<table>
+  <tr>
+    <th>Idgroup</th>
+    <th>Idparish</th>
+    <th>Instructor</th>
+    <th>Datecourse</th>
+    <th>Idcourse</th>
+  </tr>
+
+<% @history_courses.each do |history_course| %>
+  <tr>
+    <td><%=h history_course.idGroup %></td>
+    <td><%=h history_course.idParish %></td>
+    <td><%=h history_course.instructor %></td>
+    <td><%=h history_course.dateCourse %></td>
+    <td><%=h history_course.idCourse %></td>
+    <td><%= link_to 'Show', history_course %></td>
+    <td><%= link_to 'Edit', edit_history_course_path(history_course) %></td>
+    <td><%= link_to 'Destroy', history_course, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Agregar Historia de Curso', new_history_course_path %>
