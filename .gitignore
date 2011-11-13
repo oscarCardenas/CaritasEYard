@@ -12,5 +12,4 @@ nbproject/*
 nbproject/**/*
 coverage/*
 public/system/*
-config/database.yml
 .idea
