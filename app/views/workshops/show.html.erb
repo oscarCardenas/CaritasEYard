@@ -34,19 +34,31 @@
     <td>
       <b>Vicaria a la que pertenece:</b>
     </td> 
-    <td><%=h  @vicariou.name_vicariou%></td>      
+    <td><%=h  @vicariou.name_vicariou%></td>   
+  </tr>
+  
   <tr>
     <td>
-      <b>Encargado:</b> </td><td>
-      <%=h @workshop.in_charge %>
+    <b>Encargado:</b> </td><td>
+    <% @volunteer.each do |volunteer| 
+      if volunteer.id == @workshop.in_charge %>
+    <%= link_to volunteer.name + " " + volunteer.last_name,volunteer %></td>
+      <%end%>
+    <%end%>
     </td>
   </tr>
+  
   <tr>
     <td>
-      <b>Curso:</b> </td><td>
-      <%=h @workshop.course %>
+    <b>Curso:</b> </td><td>
+    <% @course.each do |course| 
+      if course.name == @workshop.course %>
+    <%= link_to course.name,course %></td>
+      <%end%>
+    <%end%>     
     </td>
   </tr>
+  
   <tr>
     <td>
       <b>Observaciones:</b> </td><td>

@@ -1,7 +1,7 @@
 class AddColumnsToWorkshop < ActiveRecord::Migration
   def self.up
     
-    add_column :workshops, :in_charge, :string
+    add_column :workshops, :in_charge, :integer
     add_column :workshops, :course, :string
     add_column :workshops, :observations, :text
     

@@ -55,10 +55,6 @@
       <td><%= p.select  :current_state, Parish::PARISH_STATES %></td>
     </tr>
       
-      <tr>
-        <td>*Sensibilizada</td>
-        <td><%= p.check_box :sensitize %></td>
-      </tr>
       <tr>  
       <td><%= "Fotografia De La Parroquia" %></td>
       <% if @parish.parish_photo %>

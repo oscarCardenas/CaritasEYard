@@ -16,8 +16,16 @@
     Fecha del Curso:</td><td>
     <%= f.date_select :dateCourse %></td></tr>
     <tr><td>
-    Curso:</td><td>
-    <%= f.text_field :idCourse %></td></tr>
+    Curso:</td><td><select name="history_course[idCourse]" >
+            <option value="0"></option>
+            <% if @courses 
+            @courses.each do |course| %>
+              <option value="<%=course.id%>" <%='selected' if course.id == @history_course.idCourse %> >
+                <%=course.name%>
+              </option>
+            <%end%>              
+              <%end%>   
+          </select></td></tr>
   
 </table>
   <p>

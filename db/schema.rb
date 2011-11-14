@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111111164503) do
+ActiveRecord::Schema.define(:version => 20111114171024) do
 
   create_table "campaings", :force => true do |t|
     t.string   "name"
@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20111111164503) do
     t.string   "ubication"
     t.string   "transport"
     t.integer  "telephone"
-    t.boolean  "sensitize"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pastor_id"
@@ -99,6 +98,13 @@ ActiveRecord::Schema.define(:version => 20111111164503) do
     t.datetime "updated_at"
     t.date     "date_of_birth"
     t.boolean  "state"
+  end
+
+  create_table "progresses", :force => true do |t|
+    t.integer  "workshop_id"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "social_cards", :force => true do |t|
@@ -198,10 +204,20 @@ ActiveRecord::Schema.define(:version => 20111111164503) do
   create_table "workshops", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "in_charge"
+    t.integer  "in_charge"
     t.string   "course"
     t.text     "observations"
     t.integer  "parish_id"
+  end
+
+  create_table "workshops_courses", :force => true do |t|
+    t.integer "workshop_id"
+    t.integer "course_id"
+  end
+
+  create_table "workshops_volunteers", :force => true do |t|
+    t.integer "workshop_id"
+    t.integer "volunteer_id"
   end
 
 end

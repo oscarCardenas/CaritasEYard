@@ -1,25 +1,25 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-          "http://www.w3.org/TR/xhtml1/DTD/xhtm...ansitional.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtm...ansitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title><%= @page_title || 'Caritas Parroquiales CBBA' %></title>
-    <%= stylesheet_link_tag "Caritas" %>
-        <%= javascript_include_tag "slide" %>
+    <%= stylesheet_link_tag "Caritas"  %>
+    <%= javascript_include_tag "slide" %>
 
   </head>
   <body>
-  <div id="wrap">
-    <%= render :partial => 'main_page/header' %>
-    <%= render :partial => 'main_page/horizontalMenu'%>
-    <div id=content-wrap>
+    <div id="wrap">
+      <%= render :partial => 'main_page/header' %>
+      <%= render :partial => 'main_page/horizontalMenu'%>
+      <div id="content-wrap">
         <div id="content-layout">
           <%= "<h1>#{@page_title}</h1>" if @page_title %>
-            <center>
-              <%= yield %>
-            </center>
+          <center>
+            <%= yield %>
+          </center>
         </div>
+      </div>
+      <%= render :partial => 'main_page/footer' %>
     </div>
-  <%= render :partial => 'main_page/footer' %>
-   </div>
   </body>
 </html>

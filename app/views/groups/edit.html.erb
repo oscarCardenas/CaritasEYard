@@ -15,11 +15,13 @@
       <td>
         <select name="group[volunteer_id]">
           <option value="-1"></option>
-          <% @volunteers.each do |volunteer| %>
-            <option value="<%=volunteer.id%>" <%='selected' if volunteer.id == @group.volunteer_id %>>
-              <%=volunteer.to_s%>
-            </option>
-          <%end%>
+          <% if @volunteers
+            @volunteers.each do |volunteer| %>
+              <option value="<%=volunteer.id%>" <%='selected' if volunteer.id == @group.volunteer_id %>>
+                <%=volunteer.to_s%>
+              </option>
+            <% end 
+          end%>
         </select>
       </td>
     </tr>

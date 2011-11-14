@@ -8,16 +8,24 @@
   </p>
 <% end %>
 <table>
-  <tr>
-    <td align="Right">
-      <%= button_to 'Crear Voluntario', new_volunteer_path %>      
-    </td>
-    <td>
-      <%= link_to 'Exportar', :method => "download_xls"%>
-    </td>
+  <tr >
+    <td align="right" >
+      <div id='reportsOptions'>
+      <table >
+        <tr>
+          <td>
+            <%= button_to 'Crear Voluntario', new_volunteer_path %>
+            </td>
+            <td>
+             <%= link_to 'Export to Excel', volunteers_path(:xls) %>
+            </td>
+        </tr>
+      </table>
+          </div>
+
   </tr>
-  <tr>
-    <td>      
+  <tr >
+    <td colspan=2>
 
       <table border="3">
 

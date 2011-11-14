@@ -1,28 +1,46 @@
-<h1>Listing history_courses</h1>
+<h1>Historial de Cursos</h1>
 
+<p>
+<% form_tag history_courses_path, :method => 'get' do %>
+      Instructor <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Buscar", :name => nil %>
+      <% end %>
+</p>
+ 
 <table>
-  <tr>
-    <th>Idgroup</th>
-    <th>Idparish</th>
-    <th>Instructor</th>
-    <th>Datecourse</th>
-    <th>Idcourse</th>
+  <tr align="right">
+    <td>  
+      <%=button_to  'Agregar Historial de Curso', new_history_course_path %>
+    </td>
   </tr>
+  <tr>
+    <td colspan="2">
+ 
+    <table border="3">
+      <tr id = 'head-table'>
+        <th>Idgroup</th>
+        <th>Idparish</th>
+        <th>Instructor</th>
+        <th>Datecourse</th>
+        <th>Idcourse</th>
+        <th colspan="3">Acciones</th>
+      </tr>
 
-<% @history_courses.each do |history_course| %>
-  <tr>
-    <td><%=h history_course.idGroup %></td>
-    <td><%=h history_course.idParish %></td>
-    <td><%=h history_course.instructor %></td>
-    <td><%=h history_course.dateCourse %></td>
-    <td><%=h history_course.idCourse %></td>
-    <td><%= link_to 'Show', history_course %></td>
-    <td><%= link_to 'Edit', edit_history_course_path(history_course) %></td>
-    <td><%= link_to 'Destroy', history_course, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% @history_courses.each do |history_course| %>
+      <tr>
+        <td><%=h history_course.idGroup %></td>
+        <td><%=h history_course.idParish %></td>
+        <td><%=h history_course.instructor %></td>
+        <td><%=h history_course.dateCourse %></td>
+        <td><%=h history_course.idCourse %></td>
+        <td><%= link_to 'Ver', history_course %></td>
+        <td><%= link_to 'Editar', edit_history_course_path(history_course) %></td>
+        <td><%= link_to 'Eliminar', history_course, :confirm => '¿Está seguro?', :method => :delete %></td>
+      </tr>
+      <% end %>
+    </table>
+    </td>
   </tr>
-<% end %>
 </table>
-
 <br />
 
-<%= link_to 'Agregar Historia de Curso', new_history_course_path %>

@@ -94,11 +94,13 @@ blockquote {
 }
 
 /* start - table */
+
 table {
 	border-collapse: collapse;
 	margin: 10px 10px;
     padding-bottom: 10px;
 }
+
 th {
 	height: 30px;
 	padding-left: 12px;
@@ -400,27 +402,25 @@ input.button {
   list-style: none;
   margin: 0 auto;
   padding: 0;
-  width: 230px;
-  /* propiedades optativas */
+  width: 210px;
   background-color: #d4d4d4;
   border: 1px solid #300;
   outline: 1px solid #FFF;
 }
 #lateralMenu ul li a {
-  /* el enlace de cada item */
   display: block;
   text-decoration: none;
-  /* propiedades optativas */
   border-top: 1px solid #333333;
   color: #333333;
-  font-size: 16px;
+  font-size: 15px;
   padding: 10px;
-  width: 207px;
+  width: 190px;
+  text-align: left;
 }
 #lateralMenu ul li a:hover {
   border-top:1px solid #300;
-    background:#778899;
-    color: #ffffff;
+  background:#778899;
+  color: #ffffff;
 }
 #lateralMenu ul li h3 {
   border-top:1px solid #300;
@@ -437,6 +437,11 @@ input.button {
 }
 
 /*fin menu lateral*/
+#reportsOptions{
+    border: 0;
+    margin: 0px;
+    padding: 5px;
+}
 /* Main Column */
 #main {
 	float: left;

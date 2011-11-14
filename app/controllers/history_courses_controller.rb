@@ -2,7 +2,7 @@ class HistoryCoursesController < ApplicationController
   # GET /history_courses
   # GET /history_courses.xml
   def index
-    @history_courses = HistoryCourse.all
+    @history_courses = HistoryCourse.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +25,7 @@ class HistoryCoursesController < ApplicationController
   # GET /history_courses/new.xml
   def new
     @history_course = HistoryCourse.new
-
+    @courses = Course.find(:all)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @history_course }
@@ -35,6 +35,11 @@ class HistoryCoursesController < ApplicationController
   # GET /history_courses/1/edit
   def edit
     @history_course = HistoryCourse.find(params[:id])
+    @courses = Course.find(:all)
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @history_course }
+    end
   end
 
   # POST /history_courses
@@ -68,5 +73,5 @@ class HistoryCoursesController < ApplicationController
       end
     end
   end
-
+  
 end

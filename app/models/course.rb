@@ -1,5 +1,11 @@
 class Course < ActiveRecord::Base
-
+  
+  #has_and_belongs_to_many :workshop
+  has_many :progress
+  has_many :workshops, :through => :progresses
+  has_many :history_courses
+  
+  
   validates_presence_of :name
   validates_format_of :name, :with => /^([a-zA-Z0-9\ ]{3,50})$/i
   

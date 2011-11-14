@@ -22,6 +22,9 @@ class WorkshopsController < ApplicationController
     @workshop = Workshop.find(params[:id])
     @parish = Parish.find(:all)
     
+    @volunteer = Volunteer.find(:all)
+    @course = Course.find(:all)
+    
     @parish1 = Parish.find(@workshop.parish_id)
     @vicariou = Vicariou.find(@parish1.vicariou_id)
     @pastor = Pastor.find(@parish1.pastor_id)
@@ -36,6 +39,8 @@ class WorkshopsController < ApplicationController
   def new
     @workshop = Workshop.new
     @parish = Parish.all(:select => "parish_name,id",:conditions=> ["id not in (select parish_id from workshops) and state=true"])
+    @course = Course.all(:select => "name")
+    @volunteer = Volunteer.all(:select => "name,id,last_name")
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @workshop }
@@ -46,6 +51,8 @@ class WorkshopsController < ApplicationController
   def edit
     @workshop = Workshop.find(params[:id])
     @parish = Parish.find(:all)
+    @course = Course.all(:all)
+    @volunteer = Volunteer.find(:all)
   end
 
   # POST /workshops

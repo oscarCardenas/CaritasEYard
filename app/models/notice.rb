@@ -23,16 +23,14 @@ class Notice < ActiveRecord::Base
     end
   end
   
-  def show_if(string)
-    return "Sí" if string== true || string =~ (/(true|t|yes|y|1)$/i)
-    return "No" if string== false || string.nil? || string =~ (/(false|f|no|n|0)$/i)
-  end
-
   def self.find_last_five
     last = find(:all,:order => "created_at")
     last.sort{|a,b| b.created_at <=> a.created_at}.slice(0..4)
   end
 
-  
   #put object methods here
+  def show_if(string)
+    return "Sí" if string== true || string =~ (/(true|t|yes|y|1)$/i)
+    return "No" if string== false || string.nil? || string =~ (/(false|f|no|n|0)$/i)
+  end
 end

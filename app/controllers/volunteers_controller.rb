@@ -4,59 +4,12 @@ class VolunteersController < ApplicationController
   def index
     @volunteers = Volunteer.search(params[:search],params[:group])
     @groups = Group.find(:all)
-    #@volunteers = Volunteer.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @volunteers }
+      format.xls
     end
-  end
-    
-  def download_xls    
-    
-    # Require the WIN32OLE library
-    require 'win32ole'
-    # Create an instance of the Excel application object
-    xl = WIN32OLE.new('Excel.Application')
-    # Make Excel visible
-    xl.Visible = 1
-    
-    @volunteer = Volunteer.all
-    # Add a new Workbook object
-    wb = xl.Workbooks.Add
-    # Get the first Worksheet
-    ws = wb.Worksheets(1)
-    # Set the name of the worksheet tab
-    ws.Name = 'Reporte P'
-    # For each row in the data set
-    @volunteer.each_with_index do |row, r|
-      # For each field in the row
-      row.each_with_index do |field, c|
-          # Write the data to the Worksheet
-          ws.Cells(r+1, c+1).Value = field.to_s
-      end
-    end
-    # Save the workbook
-    wb.SaveAs('C:\\Users\\Oscar\\Desktop\\workbook.xls')
-    # Close the workbook
-    wb.Close
-    # Quit Excel
-    xl.Quit
-    
-#    @volunteer = Volunteer.all
-#          #sample is my model name
-#
-#        respond_to do |format|       
-#        if @user.save
-#          book = Spreadsheet::Workbook.new  
-#          # create a new excel file
-#          sheet1 = book.create_worksheet      
-#          #initialize a new sheet
-#          sheet1[1,1]=params[:user][:name]
-#          #insert data in required sheet([row][column]) its starts from [0][0]
-#          book.write 'test.xls'              # commit the write
-#        end
-#      end
   end
 
   # GET /volunteers/1
@@ -68,7 +21,7 @@ class VolunteersController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @volunteer }
     end
-  end  
+  end
 
   # GET /volunteers/new
   # GET /volunteers/new.xml

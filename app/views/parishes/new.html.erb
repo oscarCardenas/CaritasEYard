@@ -44,10 +44,6 @@
       <td><%= p.select  :current_state, Parish::PARISH_STATES %></td>
     </tr>
       <tr>
-        <td>*Sensibilizada</td>
-        <td><%= p.check_box :sensitize %></td>
-      </tr>
-      <tr>
         <td>*Nombre del Parroco</td>
         <td><select name="parish[pastor_id]">
     <% if @pastor  
