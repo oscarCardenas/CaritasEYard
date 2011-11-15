@@ -27,7 +27,8 @@
       <td>
         <b>Parroquia a la que pertenece:</b>
       </td>
-      <td><%=h @parish.parish_name %></td>
+      <td><%=h if @group.parish_id.nil?
+                @parish.parish_name %></td>
     </tr>
 <tr>  
       <td><%= "Fotografia O Insignia" %></td>

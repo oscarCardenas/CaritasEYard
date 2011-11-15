@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @parish = Parish.find(@group.parish_id)
-    
+    #@parish = Parish.all(:select => "parish_name")
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @group }
@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @parish = Parish.find(:all)
-    @volunteers = Volunteer.all(:select => "id,name,last_name,second_last_name",:conditions=> ["id not in (select volunteer_id from groups) or id= ?","#{@group.volunteer_id}"])
+    @volunteers = Volunteer.all(:select => "id,name,last_name,second_last_name",:conditions=> ['id not in (select volunteer_id from groups) or id!=0'])
 
     respond_to do |format|
       format.html # new.html.erb

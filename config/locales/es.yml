@@ -297,6 +297,9 @@ en:
         format: "%{attribute} %{message}"
         
     models:
+      history_course:
+        one: "Historia de Curso"
+        other: "Historial de Cursos"
       group:
         one: "Grupo"
         other: "Grupos"
@@ -336,6 +339,11 @@ en:
         other: "Talleres"
         
     attributes:
+      history_course:
+        idGroup: "Grupo"
+        idParish: "Parroquia"
+        instructor: "Instructor"
+        idCourse: "Curso"
       group:
         name: "Nombre"
       volunteer:

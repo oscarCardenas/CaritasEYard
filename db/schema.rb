@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(:version => 20111114171024) do
   end
 
   create_table "history_courses", :force => true do |t|
-    t.integer  "idGroup"
-    t.integer  "idParish"
     t.string   "instructor"
     t.date     "dateCourse"
     t.integer  "idCourse"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "idParish"
+    t.string   "idGroup"
   end
 
   create_table "notices", :force => true do |t|

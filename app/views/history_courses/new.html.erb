@@ -1,23 +1,23 @@
 <h1>Crear Historia del Curso</h1>
 
-<% form_for(@history_course) do |f| %>
+<% form_for(@history_course, :html => {:multipart => true})do |f| %>
   <%= f.error_messages %>
   <table>
     <tr><td>
-        Grupo:</td><td>
-<%= f.text_field :idGroup %></td></tr>
+        *Grupo:</td><td>
+<%= f.text_field :idGroup, :maxlength => 255, :size => 30 %></td></tr>
     <tr><td>
-    Parroquia:</td><td>
-    <%= f.text_field :idParish %></td></tr>
+    *Parroquia:</td><td>
+    <%= f.text_field :idParish, :maxlength => 255, :size => 30 %></td></tr>
     <tr><td>
-    Instructor:</td><td>
-    <%= f.text_field :instructor, :maxlength=>255, :size=>30 %></td></tr>
+    *Instructor:</td><td>
+    <%= f.text_field :instructor, :maxlength=>255, :size => 30 %></td></tr>
     <tr><td>
-    Fecha del Curso:</td><td>
+    *Fecha del Curso:</td><td>
     <%= f.date_select :dateCourse %></td></tr>
+    
     <tr><td>
-    Curso:</td><td><select name="history_course[idCourse]" >
-            <option value="0"></option>
+    *Curso:</td><td><select name="history_course[idCourse]" >
             <% if @courses 
             @courses.each do |course| %>
               <option value="<%=course.id%>" >
@@ -25,7 +25,9 @@
               </option>
             <%end%>              
               <%end%>   
-          </select></td></tr>
+          </select></td></tr><tr>
+        <td colspan="2">*  Estos campos son obligatorios</td>
+      </tr>
   
 </table>
     <%= f.submit 'Agregar Historia' %>

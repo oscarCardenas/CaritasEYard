@@ -10,10 +10,23 @@ xml.Workbook({
   xml.Worksheet 'ss:Name' => 'Recent Volunteers' do
     xml.Table do
       # Header
+      
       xml.Row do
-        xml.Cell { xml.Data 'Name', 'ss:Type' => 'String' }
-        xml.Cell { xml.Data 'Lastname', 'ss:Type' => 'String' }
-        xml.Cell { xml.Data 'Second_Lastname', 'ss:Type' => 'String' }
+        xml.Cell {xml.Data 'Reporte de Voluntarios', 'ss:Type' => 'String'}
+      end
+      
+      xml.Row do
+        xml.Cell { xml.Data 'Nombre', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Apellido Parterno', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Apellido Materno', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Profesion', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Telefono', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Celular', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Cumpleaños', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Sexo', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'E-mail', 'ss:Type' => 'String' }
+
+        
       end
 
       # Rows
@@ -22,6 +35,13 @@ xml.Workbook({
           xml.Cell { xml.Data volunteer.name, 'ss:Type' => 'String' }
           xml.Cell { xml.Data volunteer.last_name, 'ss:Type' => 'String' }
           xml.Cell { xml.Data volunteer.second_last_name, 'ss:Type' => 'String' }
+          xml.Cell { xml.Data volunteer.profession, 'ss:Type' => 'String' }
+          xml.Cell { xml.Data volunteer.phone_number, 'ss:Type' => 'Number' }
+          xml.Cell { xml.Data volunteer.movil, 'ss:Type' => 'Number' }
+          xml.Cell { xml.Data volunteer.date_of_birth, 'ss:Type' => 'String' }
+          xml.Cell { xml.Data volunteer.genre, 'ss:Type' => 'String' }
+          xml.Cell { xml.Data volunteer.email, 'ss:Type' => 'String' }
+         
         end
       end
     end
