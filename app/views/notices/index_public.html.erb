@@ -1,0 +1,40 @@
+<div id="content-wrap">
+    		<%= render "main_page/lateralMenu.html" %>
+
+  <div id="main" >
+<h1>Noticias</h1>
+
+<p>
+<% form_tag :controller => "notices", :action => "index_public",:id =>'find', :method => 'get' do %>
+      Título <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Buscar", :name => nil %>
+      <% end %>
+</p>
+ 
+<table>
+  <tr>
+    <td colspan="2">
+ 
+    <table border="3">
+      <tr id = 'head-table'>
+        <th>Título</th>
+        <th>Publicada</th>
+        <th>Fecha</th>
+        <th colspan="3">Acciones</th>
+      </tr>
+  
+      <% @notices.each do |notice| %>
+      <tr>
+        <td><%=h notice.title %></td>
+        <td><%=h notice.show_if(notice.is_published) %></td>
+        <td><%=h notice.last_date %></td>
+        <td><%= link_to 'Ver', :controller => "notices", :action => "show_public", :id =>notice %></td>
+      </tr>
+      <% end %>
+    </table>
+    </td>
+  </tr>
+</table>
+<br />
+</div>
+</div>

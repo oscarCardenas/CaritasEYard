@@ -34,5 +34,11 @@ class Pastor < ActiveRecord::Base
       return_to_main
     end
   end
+ 
+  def to_s
+    "#{name} #{primary_last_name} #{second_last_name}"
+  end
+  
+  
   
 end

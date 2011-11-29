@@ -10,7 +10,9 @@
 <table>
   <tr>
     <td align="RIGHT">
-      <%= button_to 'Crear Obra Social', new_social_work_path %>
+      <% if current_user %>
+        <%= button_to 'Crear Obra Social', new_social_work_path %>
+      <%end%>
     </td>
   </tr>
   <tr>
@@ -22,7 +24,7 @@
           <th>Ubicacion</th>
           <th>Tetefono</th>
           <th>Celular</th>
-          <th colspan="3">Acciones</th>
+          <th colspan="6">Acciones</th>
         </tr>
         <% @social_works.each do |social_work| %>
           <tr>
@@ -32,8 +34,13 @@
             <td><%=h social_work.phone %></td>
             <td><%=h social_work.movil %></td>
             <td><%= link_to 'Ver', social_work %></td>
-            <td><%= link_to 'Editar', edit_social_work_path(social_work) %></td>
-            <td><%= link_to 'Eliminar', social_work, :confirm => 'Esta seguro?', :method => :delete %></td>
+            <% if current_user %>
+              <td><%= link_to 'Editar', edit_social_work_path(social_work) %></td>
+              <td><%= link_to 'Agregar fotos', :controller => "social_works", :action=>"add_photos", :id => social_work %></td>
+              <td><%= link_to 'Ver fotos', :controller => "social_works", :action=>"show_photos", :id => social_work %></td>
+              <td><%= link_to 'Eliminar Fotos', :controller => "social_works", :action=>"destroy_all_photos", :id => social_work %></td>
+              <td><%= link_to 'Eliminar', social_work, :confirm => 'Esta seguro?', :method => :delete %></td>
+            <%end%>
           </tr>
         <% end %>
   </tr>

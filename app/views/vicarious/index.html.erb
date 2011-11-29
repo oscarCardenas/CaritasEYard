@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Vicarias</h1>
 
 <% form_tag vicarious_path, :method => 'get' do %>
@@ -41,3 +42,6 @@
 </table>
 
 <br />
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

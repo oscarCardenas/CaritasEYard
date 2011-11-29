@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Historial de Cursos</h1>
 
 <p>
@@ -5,31 +6,18 @@
 </p>
  
 <table>
-  <tr align="right">
-    <td>  
-      <%=button_to  'Agregar Historial de Curso', new_history_course_path %>
-    </td>
-  </tr>
   <tr>
     <td colspan="2">
- 
     <table border="3">
       <tr id = 'head-table'>
-        <th>Grupo</th>
-        <th>Parroquia</th>
-        <th>Instructor</th>
-        <th>Fecha de Inicio</th>
-        <th colspan="2">Acciones</th>
+        <th>Curso</th>
+        <th colspan="1">Acciones</th>
       </tr>
 
-      <% @history_courses.each do |history_course| %>
+      <% @courses.each do |course| %>
       <tr>
-        <td><%=h history_course.idGroup %></td>
-        <td><%=h history_course.idParish %></td>
-        <td><%=h history_course.instructor %></td>
-        <td><%=h history_course.dateCourse %></td>
-        <td><%= link_to 'Ver', history_course %></td>
-        <td><%= link_to 'Editar', edit_history_course_path(history_course) %></td>
+        <td><%= link_to course.name, course %></td>
+        <td><%= link_to 'Editar', edit_course_path(course) %></td>
       </tr>
       <% end %>
     </table>
@@ -37,4 +25,6 @@
   </tr>
 </table>
 <br />
-
+<%else%>
+<h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

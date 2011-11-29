@@ -1,3 +1,4 @@
+<%if current_user%>
 <CENTER><h1>Nueva Campa&ntilde;a</h1></center>
 
 <% form_for(@campaing) do |f| %>
@@ -70,4 +71,7 @@
   </TABLE>   
  
 <% end %> 
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>
 

@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Editar párroco</h1>
 
 <% form_for(@pastor) do |f| %>
@@ -56,3 +57,6 @@
 
   </p>
 <% end %>
+  <%else%>
+<h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

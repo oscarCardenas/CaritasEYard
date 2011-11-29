@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Editar Obra Social</h1>
 
 <% form_for(@social_work) do |f| %>
@@ -61,3 +62,6 @@
     </tr>
 </table>
 <% end %>
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

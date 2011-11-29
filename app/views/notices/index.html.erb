@@ -10,7 +10,9 @@
 <table>
   <tr align="right">
     <td>  
-      <%=button_to  'Crear Noticia', new_notice_path %>
+      <%if current_user%>
+        <%=button_to  'Crear Noticia', new_notice_path %>
+      <%end%>
     </td>
   </tr>
   <tr>
@@ -32,8 +34,10 @@
         <td><%=h notice.show_if(notice.is_published) %></td>
         <td><%=h notice.last_date %></td>
         <td><%= link_to 'Ver', notice %></td>
-        <td><%= link_to 'Editar', edit_notice_path(notice) %></td>
-        <td><%= link_to 'Eliminar', notice, :confirm => '¿Está seguro?', :method => :delete %></td>
+        <% if current_user %>
+              <td><%= link_to 'Editar', edit_notice_path(notice) %></td>
+              <td><%= link_to 'Eliminar', notice, :confirm => '¿Está seguro?', :method => :delete %></td>
+        <%end%>
       </tr>
       <% end %>
     </table>

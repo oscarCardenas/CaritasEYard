@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Parroquias</h1>
 
 <% form_tag parishes_path, :method => 'get' do %>
@@ -19,7 +20,7 @@
         <tr id ='head-table'>
           <th>Nombre Parroquia</th>
           <th>Ubicacion</th>
-          <th>Telefono</th>
+          <th>Telefono</th>    
           <th>Estado</th>
           <th colspan="3"> Acciones</th>
         </tr>
@@ -29,9 +30,14 @@
             <tr>
               <td><%= link_to  parish.parish_name,parish %></td>
               <td><%=h parish.ubication %></td>
-              <td><%=h parish.telephone %></td>
+              <td><%=h parish.telephone %></td>              
               <td><%=h parish.current_state %></td>
+                            
+              
               <td><%= link_to 'Editar', edit_parish_path(parish) %></td>
+              <% if parish.current_state != "En Contacto" && parish.current_state != "No Alcanzada" && parish.current_state != "No Aceptada"%>                                
+                  <td><%= link_to "Taller", edit_workshop_path(Workshop.searchByParish(parish.id)) %></td>                   
+              <%end%>                                          
 <!--              <td><%= link_to 'Eliminar', parish, :confirm => 'Esta seguro que desea eliminar esta parroquia?', :method => :delete %></td> -->
             </tr>
           <%end%>
@@ -42,3 +48,6 @@
 </table>
 
 <br />
+<%else%>
+<h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

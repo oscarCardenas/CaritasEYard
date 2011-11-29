@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Nuevo Grupo</h1>
 
 <% form_for(@group, :html => {:multipart => true}) do |f| %>
@@ -51,4 +52,7 @@
 
   </table>
 <% end %>
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>
 

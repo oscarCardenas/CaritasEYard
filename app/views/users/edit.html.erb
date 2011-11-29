@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Editing user</h1>
 
 <% form_for(@user) do |f| %>
@@ -22,3 +23,6 @@
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', root_url %>
+<%else%>
+<h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

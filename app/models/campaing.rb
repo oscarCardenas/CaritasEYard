@@ -2,7 +2,8 @@ class Campaing < ActiveRecord::Base
   #put constants here
 
   #put relations and references here
-
+  has_many :campaing_photos
+  accepts_nested_attributes_for :campaing_photos, :allow_destroy => true
   #put active record callbacks here
 
   #put validates here
@@ -28,6 +29,15 @@ class Campaing < ActiveRecord::Base
   def self.find_last_five
     last = find(:all,:order => "date_ini")
     last.sort{|a,b| b.date_ini <=> a.date_ini}.slice(0..3)
+  end
+  
+  def self.find_last_six
+    find(:all,:order => "date_ini", :limit=>6,:conditions => ['id IN (Select campaing_id As id From campaing_photos)'])
+
+  end
+  def self.getRandomPicture (id)
+    @photos=CampaingPhoto.find(:all,:order => "id",:conditions => ['campaing_id = ?',id])
+    @photos[rand(@photos.count)]
   end
   
   #put object methods here

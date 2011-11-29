@@ -1,4 +1,5 @@
-<h1>Editing social_card</h1>
+<%if current_user%>
+<h1>Editar Ficha Social</h1>
 
 <% form_for(@social_card) do |f| %>
   <%= f.error_messages %>
@@ -6,7 +7,13 @@
   <table width="50%" border="0">
   <tr>
     <td width="15"> Parroquia</td>
-    <td width="35%"> <%= f.text_field :parish_church %></td>
+    <td width="35%">  <select name="social_card[parish_id]">
+            <% @parishes.each do |parish| %>
+              <option value="<%=parish.id%>" <%='selected' if parish.id == @social_card.parish_id %>>
+                <%=parish.parish_name%>
+              </option>
+            <%end%>
+          </select></td>
    </tr>
   <tr>
     <td width="15%">Fecha</td>
@@ -119,12 +126,22 @@
     </td>
      <td><%= f.text_field :what_kind%></td>
   </tr>
+  <tr>
+        <td>*  Estos campos son obligatorios</td>
+      </tr>
+
+      <tr align="right">
+        <td colspan="2">
+          <%= link_to 'Ver', @parish %> 
+          <%= f.submit 'Guardar' %>
+          <%= link_to 'Cancelar', social_cards_path %>
+        </td>
+      </tr>
 </table>
  
-  <p>
-    <%= f.submit 'Editar' %>
-  </p>
+
 <% end %>
 
-<%= link_to 'Mostrar', @social_card %> |
-<%= link_to 'Atras', social_cards_path %>
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

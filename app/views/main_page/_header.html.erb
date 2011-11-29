@@ -15,13 +15,13 @@
       <h1 id="logo-text"><%= link_to "Pastoral Social Caritas CBBA", :controller => "main_page", :action => "index"%></h1>
       <!-- login -->
       <div id="user_nav">
-        <% if current_user %>
+        <%if current_user %>
           <%= link_to "Editar", edit_user_path(:current) %> |
-          <%= link_to "Logout", logout_path %>
-        <% else %>
-          <%= link_to "Registrar", new_user_path %> |
+          <%= link_to "Logout", logout_path %> |
+          <%= link_to "Registrar", new_user_path %>
+        <%else%>
           <%= link_to "Log in", login_path %>
-        <% end %>
+        <%end%>
       </div>
       <!-- login ends -->
     </div>

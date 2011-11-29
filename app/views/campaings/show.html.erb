@@ -96,9 +96,13 @@
     <td colspan="2">
       <% if current_user %>
             <%= link_to 'Editar', edit_campaing_path %>|
-          <% end %>
+
       <%= link_to 'Volver', campaings_path %>
+          <% else %>
+      <%=link_to "Volver", :controller => "campaings", :action => "index_public",:id =>'find'%>
+          <% end %>
     </td>
+
   </tr>
 </TABLE>
 

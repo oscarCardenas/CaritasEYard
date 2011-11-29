@@ -45,9 +45,13 @@
     <td><%=h @social_work.responsible_filling %></td>
   </tr>
   <tr align="right">
-      <td colspan="2">
-        <%= link_to 'Editar', edit_social_work_path(@social_work) %> |
-        <%= link_to 'Volver', social_works_path %>
-      </td>
+     <td colspan="2">
+      <% if current_user %>
+           <%= link_to 'Editar', edit_social_work_path(@social_work) %> |
+           <%= link_to 'Volver', social_works_path %>
+          <% else %>
+      <%=link_to "Volver", :controller => "social_works", :action => "index_public",:id =>'find'%>
+          <% end %>
+    </td>
     </tr>
 </table>

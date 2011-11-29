@@ -37,7 +37,9 @@
     
     <tr align="right">
       <td colspan="2">
-        <%= link_to 'Editar', edit_notice_path(@notice) %> |
+        <%if current_user%>
+          <%= link_to 'Editar', edit_notice_path(@notice) %> |
+        <%end%>
         <%= link_to 'Volver', notices_path %>
       </td>
     </tr>

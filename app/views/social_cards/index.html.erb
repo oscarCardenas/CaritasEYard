@@ -1,34 +1,45 @@
-<h1>Lista De Fichas Sociales</h1>
+<%if current_user%>
 
-<table>
-  <tr align="right">
-    <td>
-      <%=button_to 'Crear Ficha Social', new_social_card_path %>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
+  <h1>Lista De Fichas Sociales</h1>
+<p>
+  <% form_tag social_cards_path, :method => 'get' do %>
+    Parametro: <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :name => nil %>
+  <% end %>
+</p>
+  <table>
+    <tr align="right">
+      <td>
+        <%=button_to 'Crear Ficha Social', new_social_card_path %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
 
-      <table border="3">
-        <tr id = 'head-table'>
-          <th>Nombre</th>
-          <th>Parroquia</th>
-          <th >Acciones</th>
-        </tr>
+        <table border="3">
+          <tr id = 'head-table'>
+            <th>Nombre</th>
+            <th>Parroquia</th>
+            <th colspan="2">Acciones</th>
 
-       <% @social_cards.each do |social_card| %>
-          <tr>
-            <td><%= link_to social_card.name,social_card %></td>
-            <td><%=h social_card.parish_church%></td>
-            <td><%= link_to 'Editar', edit_social_card_path(social_card) %></td>
-           
           </tr>
-        <% end %>
-      </table>
 
-    </td>
-  </tr>
-</table>
+          <% @social_cards.each do |social_card| %>
+            <tr>
+              <td><%= link_to social_card.name,social_card %></td>
+              <td><%=h social_card.parish_church%></td>
+              <td><%= link_to 'Editar', edit_social_card_path(social_card) %></td>
+              <td><%= link_to 'Eliminar', social_card, :confirm => 'Esta seguro?', :method => :delete %></td>
+            </tr>
+          <% end %>
+        </table>
 
-<br />
+      </td>
+    </tr>
+  </table>
+
+  <br />
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>
 

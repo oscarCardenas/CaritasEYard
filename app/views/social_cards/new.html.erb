@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Nuevo Ficha Social</h1>
 
 <% form_for(@social_card) do |f| %>
@@ -7,7 +8,15 @@
   <table width="50%" border="0">
   <tr>
     <td width="15"> Parroquia</td>
-    <td width="35%"> <%= f.text_field :parish_church %></td>
+    <td width="35%"> <select name="social_card[parish_id]">
+   <!-- <option value="0"></option>-->
+    <% if @parishes
+      @parishes.each do |parish| %>
+      <option value="<%=parish.id%>">
+                 <%=parish.parish_name%>
+      </option>
+        <%end%>
+      <%end%></select></td>
    </tr>
   <tr>
     <td width="15%">Fecha</td>
@@ -20,11 +29,16 @@
   <tr>
     <td width="15%"><p>*Nombre</p></td>
     <td width="35%"><%= f.text_field :name %></td>
-    <td width="15%">*Estado Civil</td>
-    <td width="35%"><%= f.text_field :marital_status %></td>
+    <td width="15%">Estado Civil</td>
+    <td width="35%"><select name="social_card[marital_status]">
+         <option value="">Escoja Una Opcion</option>
+        <option value="Soltero/a">Soltero/a</option>
+        <option value="Casado/a">Casado/a</option>
+        <option value="Viudo/a">Viudo/a</option>
+      </select></td>
    </tr>
   <tr>
-     <td width="15%">*CI</td>
+     <td width="15%">CI</td>
     <td width="35%"><%= f.text_field :identity_card %></td>
     <td width="15%">*Sexo</td>
     <td width="35%">masculino
@@ -85,7 +99,7 @@
     <td colspan="3"><%= f.text_field :address_reference %></td>
   </tr>
   <tr>
-    <td>*Telefono</td>
+    <td>Telefono</td>
     <td width="29%"><%= f.text_field :phone_reference %></td>
     <td width="21%">Celular</td>
     <td width="29%"><%= f.text_field :movil_reference %></td>
@@ -129,3 +143,6 @@
 
   </table>
 <% end %>
+  <%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

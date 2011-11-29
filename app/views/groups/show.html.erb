@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Ver Grupo</h1>
 
 <table>
@@ -28,7 +29,7 @@
         <b>Parroquia a la que pertenece:</b>
       </td>
       <td><%=h if @group.parish_id.nil?
-                @parish.parish_name %></td>
+         @parish.parish_name %></td>
     </tr>
 <tr>  
       <td><%= "Fotografia O Insignia" %></td>
@@ -46,3 +47,6 @@
   </tr>
 
 </table>
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

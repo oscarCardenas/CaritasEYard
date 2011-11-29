@@ -2,8 +2,12 @@
 
 one:
   name: MyString
-  description: MyString
+  responsible: MyString
+  date_ini: 2011-11-19
+  description: MyText
 
 two:
   name: MyString
-  description: MyString
+  responsible: MyString
+  date_ini: 2011-11-19
+  description: MyText

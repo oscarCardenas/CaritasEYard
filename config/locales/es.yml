@@ -337,8 +337,16 @@ en:
       workshop:
         one: "Taller"
         other: "Talleres"
+        course:
+          one: "Curso"
+          other: "Cursos"
         
     attributes:
+      course:
+        name: "Nombre"
+        description: "Descripcion"
+        date_ini: "Fecha"
+        responsible: "Responsable"
       history_course:
         idGroup: "Grupo"
         idParish: "Parroquia"

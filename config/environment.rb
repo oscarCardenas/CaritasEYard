@@ -42,4 +42,13 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+ActionMailer::Base.smtp_settings = {
+  :enable_starttls_auto => true,
+  :address        => "smtp.gmail.com",
+  :port           => 587,
+  :domain         => "caritascbba.org",
+  :user_name      => "pruebascaritas@gmail.com",
+  :password       => "pruebascaritas1234",
+  :authentication => :plain
+  }
 #require 'paginator'

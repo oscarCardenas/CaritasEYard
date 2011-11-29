@@ -14,6 +14,14 @@ class NoticesController < ApplicationController
       format.xml  { render :xml => @notices }
     end
   end
+    def index_public
+    @notices = Notice.search(params[:search])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @notices }
+    end
+  end
 
   # GET /notices/1
   # GET /notices/1.xml

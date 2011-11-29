@@ -1,0 +1,27 @@
+<%if current_user%>
+<h1>Ver Curso de Formacion</h1>
+
+<table>
+
+  <tr>
+    <td>Nombre</td>
+    <td><%=h @courses_type.name %></td>
+  </tr>
+
+  <tr>
+    <td width="250">Descripcion</td>
+    <td width="250"><%=h @courses_type.description %></td>
+  </tr>
+
+
+  <tr align="right">
+    <td colspan="2">
+      <%= link_to 'Editar', edit_courses_type_path(@group) %> |
+      <%= link_to 'Volver', courses_types_path %>
+    </td>
+  </tr>
+
+</table>
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

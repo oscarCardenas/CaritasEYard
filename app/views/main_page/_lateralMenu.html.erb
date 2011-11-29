@@ -8,14 +8,14 @@
           <%= link_to "#{campaing.name}" "<span>#{truncate(campaing.description, :length => 100)}", :controller => "campaings", :action => "show_public", :id =>campaing %>
         </li>
       <% end %>
-      <li><%=link_to "Ver Todos", campaings_path%></li>
+      <li><%=link_to "Ver Todos", :controller => "campaings", :action => "index_public",:id =>'find'%></li>
     </ul>
     <h3>Ultimas noticias</h3>
     <ul>
       <% Notice.find_last_five.each do |notice| %>
         <li><%= link_to "#{notice.title}" "<span>#{truncate(notice.description, :length => 100)}", :controller => "notices", :action => "show_public", :id =>notice %></li>
       <%end %>
-      <li><%= link_to 'Ver Todos', notices_path %></li>
+      <li><%= link_to 'Ver Todos', :controller => "notices", :action => "index_public",:id =>'find'  %></li>
 
     </ul>
     <h3>Obras Sociales</h3>
@@ -27,7 +27,7 @@
           <% end %>
         </li>
 
-      <li><%= link_to 'Ver Todos', social_works_path %></li>
+      <li><%= link_to 'Ver Todos',  :controller => "social_works", :action => "index_public",:id =>'find' %></li>
     </ul>
   </div>
 

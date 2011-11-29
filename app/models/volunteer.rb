@@ -4,10 +4,8 @@ class Volunteer < ActiveRecord::Base
   #put relations and references here
   has_one :group #relacion para group_leader
   belongs_to :group
+  belongs_to :assistance_list
   
-  has_many :workshops
-  #belongs_to :workshop
-
   #put active record callbacks here
   file_column :volunteer_photo
   #put validates here
@@ -24,8 +22,11 @@ class Volunteer < ActiveRecord::Base
   validates_format_of :second_last_name, :with => /^([a-zA-Z\ \-]{3,50})$/i
   validates_format_of :profession, :with => /^([a-zA-Z\ \-]{3,50})$/i,:allow_blank => true  
   validates_format_of :position, :with => /^([a-zA-Z\ \-]{3,20})$/i
+  
+  validates_numericality_of :phone_number,:allow_blank => true, :message => " no es un numero o es incorrecto" 
+  validates_numericality_of :movil, :greater_than => 100000, :less_than => 999999999,:allow_blank => true  , :message => " no es un numero o es incorrecto" 
 
-   validates_file_format_of :volunteer_photo, :in => ["gif", "jpg", "png"]
+  validates_file_format_of :volunteer_photo, :in => ["gif", "jpg", "png"]
   validates_filesize_of :volunteer_photo, :in => 1.kilobytes..3000.kilobytes
   #put class methods here
   def self.search(search,group)

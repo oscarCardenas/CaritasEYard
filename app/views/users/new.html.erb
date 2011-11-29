@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Nuevo usuario</h1>
 
 <% form_for(@user) do |f| %>
@@ -26,3 +27,6 @@
   </table>
 
 <% end %>
+<%else%>
+<h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

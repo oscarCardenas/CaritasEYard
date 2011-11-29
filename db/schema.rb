@@ -9,7 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111114171024) do
+ActiveRecord::Schema.define(:version => 20111126031626) do
+
+  create_table "assistance_lists", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "volunteer_id"
+    t.integer  "course_id"
+  end
+
+  create_table "campaing_photos", :force => true do |t|
+    t.integer  "campaing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
+  end
 
   create_table "campaings", :force => true do |t|
     t.string   "name"
@@ -23,6 +40,17 @@ ActiveRecord::Schema.define(:version => 20111114171024) do
   end
 
   create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.date     "date_ini"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "responsible"
+    t.integer  "workshop_id"
+    t.integer  "courses_types_id"
+  end
+
+  create_table "courses_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
@@ -137,6 +165,17 @@ ActiveRecord::Schema.define(:version => 20111114171024) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "what_kind"
+    t.boolean  "state",                    :default => true
+  end
+
+  create_table "social_work_photos", :force => true do |t|
+    t.integer  "social_work_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
   end
 
   create_table "social_works", :force => true do |t|
@@ -153,6 +192,7 @@ ActiveRecord::Schema.define(:version => 20111114171024) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.boolean  "state",               :default => true
   end
 
   create_table "user_sessions", :force => true do |t|
@@ -201,13 +241,19 @@ ActiveRecord::Schema.define(:version => 20111114171024) do
     t.string   "volunteer_photo"
   end
 
+  create_table "workshop_course_types", :force => true do |t|
+    t.integer  "id_course_type"
+    t.integer  "id_workshop"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "workshops", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "in_charge"
-    t.string   "course"
     t.text     "observations"
     t.integer  "parish_id"
+    t.string   "in_charge"
   end
 
   create_table "workshops_courses", :force => true do |t|

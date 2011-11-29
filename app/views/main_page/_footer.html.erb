@@ -25,9 +25,8 @@
       <p>
         &copy; 2011<strong> Taller de desarrollo - UCB II-11</strong>&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="index.html">Inicio</a>&nbsp;|&nbsp;
-        <a href="index.html">Contactanos</a>&nbsp;|&nbsp;
-        <a href="index.html">Documentos</a>
+        <%= link_to 'Inicio',:controller => "main_page", :action => "index" %>&nbsp;|&nbsp;
+        <%= link_to 'Contactanos',:controller => "main_page", :action => "index" %>
       </p>
     </div>
   </div>

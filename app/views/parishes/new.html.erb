@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Crear Parroquia</h1>
 
 <% form_for(@parish, :html => {:multipart => true})do |p| %>
@@ -71,5 +72,7 @@
       </tr>
     </table>
 <% end %>
-
+<%else%>
+<h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>
 

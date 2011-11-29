@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Crear Voluntario</h1>
 
 <% form_for(@volunteer, :html => {:multipart => true}) do |f| %>
@@ -18,17 +19,17 @@
     </tr>
 
     <tr>
-      <td>&nbsp&nbsp&nbspProfesion</td>
+      <td>&nbsp;&nbsp;&nbsp;Profesion</td>
       <td><%= f.text_field :profession %></td>
     </tr>
 
     <tr>
-      <td>&nbsp&nbsp&nbspTelefono</td>
+      <td>&nbsp;&nbsp;&nbsp;Telefono</td>
       <td><%= f.text_field :phone_number %></td>
     </tr>
 
     <tr>
-      <td>&nbsp&nbsp&nbspCelular</td>
+      <td>&nbsp;&nbsp;&nbsp;Celular</td>
       <td><%= f.text_field :movil %></td>
     </tr>
 
@@ -49,12 +50,12 @@
       <td><%= f.text_field :position %></td>
     </tr>
     <tr>
-      <td>&nbsp&nbsp&nbspEmail</td>
+      <td>&nbsp;&nbsp;&nbsp;Email</td>
       <td><%= f.text_field :email %></td>
     </tr>  
 
     <tr>
-      <td>&nbsp&nbsp&nbspGrupo</td>
+      <td>&nbsp;&nbsp;&nbsp;Grupo</td>
       <td>
         <select name="volunteer[group_id]" >
           <option value="0"></option>
@@ -92,4 +93,7 @@
 
 
 <% end %>
+<%else%>
+  <h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>
 

@@ -1,3 +1,4 @@
+<%if current_user%>
 <h1>Ver Parroquia</h1>
   <table>
     <tr>
@@ -63,3 +64,6 @@
 
 <%= link_to 'Editar', edit_parish_path(@parish) %> |
 <%= link_to 'Volver', parishes_path %>
+<%else%>
+<h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>

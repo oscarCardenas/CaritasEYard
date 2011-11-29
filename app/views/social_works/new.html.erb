@@ -1,63 +1,66 @@
+<%if current_user%>
 <h1>Crear Obra Social</h1>
+  <% form_for(@social_work) do |f| %>
+    <%= f.error_messages %>
+  <table>
+    <tr>
+      <td>* Parroquia</td>
+      <td><%= f.text_field :parish %></td>
+    </tr>
+    <tr>
+      <td>* Nombre Obra Social</td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+        <td>* Obra Social De</td>          
+          <td><%= f.text_field :social_work %></td>  
+      </tr>
+    <tr>
+      <td>* Responsable</td>
+      <td><%= f.text_field :responsible %></td>
+    </tr>
+    <tr>
+      <td>* Ubicacion</td>
+      <td><%= f.text_field :location %></td>
+    </tr>
+    <tr>
+      <td>Telefono</td>
+      <td><%= f.text_field :phone %></td>
+    </tr>
+    <tr>
+      <td>Celular</td>
+      <td><%= f.text_field :movil %></td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+      <td>Transporte</td>
+      <td><%= f.text_field :transport %></td>
+    </tr>
+    <tr>
+      <td>Descripcion</td>
+      <td><%= f.text_area :description, :cols => 60, :rows => 10 %></td>
+    </tr>
+    <tr>
+      <td>* Responsable del llenado</td>
+      <td><%= f.text_field :responsible_filling %></td>
+    </tr>
 
-<% form_for(@social_work) do |f| %>
-  <%= f.error_messages %>
-<table>
-  <tr>
-    <td>* Parroquia</td>
-    <td><%= f.text_field :parish %></td>
-  </tr>
-  <tr>
-    <td>* Nombre Obra Social</td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-  <tr>
-      <td>* Obra Social De</td>          
-        <td><%= f.text_field :social_work %></td>  
-    </tr>
-  <tr>
-    <td>* Responsable</td>
-    <td><%= f.text_field :responsible %></td>
-  </tr>
-  <tr>
-    <td>* Ubicacion</td>
-    <td><%= f.text_field :location %></td>
-  </tr>
-  <tr>
-    <td>Telefono</td>
-    <td><%= f.text_field :phone %></td>
-  </tr>
-  <tr>
-    <td>Celular</td>
-    <td><%= f.text_field :movil %></td>
-  </tr>
-  <tr>
-    <td>Email</td>
-    <td><%= f.text_field :email %></td>
-  </tr>
-  <tr>
-    <td>Transporte</td>
-    <td><%= f.text_field :transport %></td>
-  </tr>
-  <tr>
-    <td>Descripcion</td>
-    <td><%= f.text_area :description, :cols => 60, :rows => 10 %></td>
-  </tr>
-  <tr>
-    <td>* Responsable del llenado</td>
-    <td><%= f.text_field :responsible_filling %></td>
-  </tr>
-  
-  <tr align="right">
-      <td colspan="2">
-        <%= f.submit 'Crear' %> 
-    <button type="reset">Limpiar</button>
-    <%= link_to 'Cancelar', social_works_path %>
-      </td>
-    </tr>
-  
-  <tr>
-      <td>*  Estos campos son obligatorios</td>
-    </tr>
-</table>
+    <tr align="right">
+        <td colspan="2">
+          <%= f.submit 'Crear' %> 
+      <button type="reset">Limpiar</button>
+      <%= link_to 'Cancelar', social_works_path %>
+        </td>
+      </tr>
+
+    <tr>
+        <td>*  Estos campos son obligatorios</td>
+      </tr>
+  </table>
 <% end %>
+<%else%>
+<h1>no puede realizar esta accion, porfavor contactese</h1>
+<%end%>
