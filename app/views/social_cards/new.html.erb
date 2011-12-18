@@ -1,7 +1,7 @@
 <%if current_user%>
 <h1>Nuevo Ficha Social</h1>
 
-<% form_for(@social_card) do |f| %>
+<% form_for(@social_card, :html => {:multipart => true}) do |f| %>
   <%= f.error_messages %>
 
 <h2>Informacion De La Parroquia</h2>
@@ -83,7 +83,7 @@
   </tr>
   <tr>
     <td>Historia Familiar</td>
-    <td colspan="5"><%= f.text_area :family_history, :rows =>3 %></td>
+    <td colspan="5"><%= f.text_area :family_history, :rows =>3 , :style => "resize:none"%></td>
   </tr>
 </table>
  <h2>Informacion De Referencia</h2>
@@ -129,8 +129,13 @@
   <tr>
     <td><p><br />
     De Que tipo?</p></td>
-    <td><%= f.text_area :what_kind, :rows =>3 %></td>
+    <td><%= f.text_area :what_kind, :rows =>3 , :style => "resize:none"%></td>
   </tr>
+  <tr>
+    <td><%= "Fotografia de la persona"  %> </td>
+    <td><%= file_column_field "social_card",  "social_card_photo" %></td>
+  </tr>
+
 </table>  
 <table>
     <tr align="right">

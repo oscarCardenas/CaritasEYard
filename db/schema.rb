@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111126031626) do
+ActiveRecord::Schema.define(:version => 20111218202714) do
 
   create_table "assistance_lists", :force => true do |t|
     t.datetime "created_at"
@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(:version => 20111126031626) do
     t.datetime "updated_at"
   end
 
+  create_table "contact_us", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.date     "date_ini"
@@ -53,6 +58,16 @@ ActiveRecord::Schema.define(:version => 20111126031626) do
   create_table "courses_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "course_file"
+  end
+
+  create_table "donations", :force => true do |t|
+    t.integer  "campaing_id"
+    t.string   "name"
+    t.integer  "amount"
+    t.string   "unit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,7 +152,6 @@ ActiveRecord::Schema.define(:version => 20111126031626) do
 
   create_table "social_cards", :force => true do |t|
     t.date     "date"
-    t.string   "parish_church"
     t.string   "name"
     t.string   "marital_status"
     t.string   "gender"
@@ -166,6 +180,8 @@ ActiveRecord::Schema.define(:version => 20111126031626) do
     t.datetime "updated_at"
     t.string   "what_kind"
     t.boolean  "state",                    :default => true
+    t.integer  "parish_id"
+    t.string   "social_card_photo"
   end
 
   create_table "social_work_photos", :force => true do |t|
@@ -183,8 +199,8 @@ ActiveRecord::Schema.define(:version => 20111126031626) do
     t.string   "social_work"
     t.string   "responsible"
     t.string   "location"
-    t.integer  "phone"
-    t.integer  "movil"
+    t.string   "phone"
+    t.string   "movil"
     t.string   "email"
     t.string   "transport"
     t.text     "description"
@@ -228,8 +244,6 @@ ActiveRecord::Schema.define(:version => 20111126031626) do
     t.string   "last_name"
     t.string   "second_last_name"
     t.string   "profession"
-    t.integer  "phone_number"
-    t.integer  "movil"
     t.date     "date_of_birth"
     t.string   "genre"
     t.string   "position"
@@ -239,6 +253,9 @@ ActiveRecord::Schema.define(:version => 20111126031626) do
     t.string   "email"
     t.boolean  "state"
     t.string   "volunteer_photo"
+    t.string   "thumb_url"
+    t.string   "phone_number"
+    t.string   "movil"
   end
 
   create_table "workshop_course_types", :force => true do |t|
@@ -253,7 +270,6 @@ ActiveRecord::Schema.define(:version => 20111126031626) do
     t.datetime "updated_at"
     t.text     "observations"
     t.integer  "parish_id"
-    t.string   "in_charge"
   end
 
   create_table "workshops_courses", :force => true do |t|

@@ -22,7 +22,7 @@
           <th>Nombre</th>
           <th width="250">Descripcion</th>
           <!--<th>Voluntarios</th>-->
-          <th colspan="3">Acciones</th>
+          <th colspan="4">Acciones</th>
         </tr>
 
         <% @courses_types.each do |courses_type| 
@@ -32,6 +32,13 @@
               <td width="250"><%=h courses_type.description %></td>
                            
               <td><%= link_to 'Editar', edit_courses_type_url(courses_type) %></td>
+              <td align="center">
+               <% if courses_type.course_file %>
+                  <%= link_to 'Descargar archivo', url_for_file_column(courses_type, "course_file") %>
+                <% else %>
+                  <% "Sin adjunto"   %>
+                <%end%>
+              </td>
               <td><%= link_to 'Eliminar', courses_type, :confirm => 'Esta seguro que desea eliminar el curso de formacion?', :method => :delete %></td>
             </tr>
           <% end 

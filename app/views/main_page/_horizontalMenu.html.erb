@@ -9,11 +9,11 @@
       </li>
       <li><a href="#">Grupos y Voluntarios</a>
         <ul>
+          <li><%= link_to 'Parroco',:controller => "pastors", :action => "index"%></li>
           <li><%= link_to 'Vicaria',:controller => "vicarious", :action => "index" %></li>
           <li><%= link_to 'Parroquia',:controller => "parishes", :action => "index"%> </li>
           <li><%= link_to 'Grupos',:controller => "groups", :action => "index"%></li>
           <li><%= link_to 'Voluntario',:controller => "volunteers", :action => "index"%></li>
-          <li><%= link_to 'Parroco',:controller => "pastors", :action => "index"%></li>
           <li><%= link_to 'Cursos de Formacion',:controller => "courses_types", :action => "index"%></li>
         </ul></li>
       <li><a href="#">Campañas y Proyectos</a>
@@ -34,6 +34,8 @@
           <li><%= link_to 'Campaña',:controller => "campaings", :action => "index"%></li>
           <li><%= link_to 'Noticias',:controller => "notices", :action => "index"%></li>
           <li><%= link_to 'Obra Social',:controller => "social_works", :action => "index"%></li>
+          <li><%= link_to 'Contactanos',:controller => "emailer", :action => "index_contact_us"%></li>
+
          </ul>
             </li>
 

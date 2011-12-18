@@ -48,17 +48,20 @@
 	float:left;
 	margin:3px;
 	display:block;
+        background: lightcoral;
 	font-size:1px;		
 }
 
 /* mouseover state */
 .slidetabs a:hover {
-	background-position:center center;      
+	background-position:center center;
+        background: darkred;
 }
 
 /* active state (current page state) */
 .slidetabs a.current {
-	background-position:bottom center;     
+	background-position:bottom center; 
+        background: red;
 } 	
 
 /* prev and next buttons */

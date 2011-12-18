@@ -10,13 +10,14 @@
 <% form_for(@course) do |f| %>
   <%= f.error_messages %>
 
-<%= f.hidden_field :workshop_id, :value => params[:workshop_code] %>
-      <%= f.hidden_field :courses_types_id, :value => params[:course_type_code] %> 
+<%= f.hidden_field :workshop_id, :value => @course.workshop_id %>
+      <%= f.hidden_field :courses_types_id, :value => @course.courses_types_id %> 
+<%= f.hidden_field :name, :value => CoursesType.find(@course.courses_types_id).name %> 
 
 <TABLE   ALIGN="CENTER">      
   <tr>
     <td>* Nombre<br /></td>
-    <td><%= f.text_field :name %></td>
+    <td><%= h CoursesType.find(@course.courses_types_id).name %></td>
   </tr>
   <tr>
     <td>* Responsable<br /></td>
@@ -30,23 +31,23 @@
   
   <tr>
     <td>&nbsp&nbsp&nbspDescripción<br /></td>
-    <td><%= f.text_area :description, :rows=>6, :cols=>22  %></td>
+    <td><%= f.text_area :description, :rows=>6, :cols=>22 , :style => "resize:none"%></td>
   </tr>
   
   <tr>
       <td>* Seleccione los Asistentes</td>
       <td>
    
-            <% lista_voluntarios = Volunteer.all.map { |volunteer| [volunteer.name.to_s + " " + volunteer.last_name, volunteer.id] } %>
-            <%= select_tag "lista_voluntarios", options_for_select(lista_voluntarios),:multiple=>true %>        
-    </td>
+            <% lista_voluntarios = Volunteer.all.map { |volunteer| [volunteer.name.to_s + " " + volunteer.last_name, volunteer.id] } %>            
+            <%= select_tag "lista_voluntarios", options_for_select(lista_voluntarios),:multiple=>true %>                    
+      </td>
     </tr>
     
     <tr align="right">
       <td colspan="2">
-        <%= f.submit 'Registrar' %>
+        <%= f.submit 'Registrar'%>
         <button type="reset">Limpiar</button>
-        <%= link_to 'Volver', edit_workshop_path(params[:workshop_code]) %>
+        <%= link_to 'Volver', edit_workshop_path(@course.workshop_id) %>
       </td>
     </tr>
     

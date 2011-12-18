@@ -74,7 +74,7 @@
                       @c+=1
                   end
               end
-              @link = '#{@link} <a class="" href="#" >*</a>'
+              @link = @link+'<a class="" href="#" >*</a>'
           @i=@i+1
            %>
                 
@@ -83,8 +83,7 @@
          </div>
 <a id="forward">next</a>
 <div class="slidetabs" >
-         <a class="" href="#" >*</a>
-         <a class="" href="#" >*</a>
+  <%= @link %>
 </div>
 
 <div align="center" style="clear: both; margin: 0px 0pt; text-align: center; padding-right: 0px;">

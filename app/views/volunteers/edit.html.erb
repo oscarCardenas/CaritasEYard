@@ -53,7 +53,7 @@
       <tr>
         <td>&nbsp;&nbsp;&nbsp;Grupo</td>
         <td>
-          <select name="volunteer[group_id]">
+          <select name="volunteer[group_id]" style="width: 150px">
             <% @groups.each do |group| %>
               <option value="<%=group.id%>" <%='selected' if group.id == @volunteer.group_id %>>
                 <%=group.name%>

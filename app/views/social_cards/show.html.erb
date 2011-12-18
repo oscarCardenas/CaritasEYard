@@ -110,6 +110,14 @@
     </td>
      <td><%= h @social_card.what_kind%></td>
   </tr>
+  <tr>  
+      <td><%= "Fotografia de la persona" %></td>
+      <% if @social_card.social_card_photo %>
+      <td><%=  image_tag url_for_file_column("social_card", "social_card_photo"), :size=>"300x200" %></td>
+      <% else %>
+      <td>No Esta Disponible La Fotografia</td>
+      <% end   %>
+    </tr>
 </table>
   
   

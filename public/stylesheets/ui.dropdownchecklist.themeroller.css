@@ -18,7 +18,8 @@
 	font-size: 0px;
 }
 .ui-dropdownchecklist-text {
-	font-size: medium;
+	/*font-size: medium;*/
+        font: normal 13px Verdana, sans-serif;
 }
 .ui-dropdownchecklist-item
 , .ui-dropdownchecklist-item input {

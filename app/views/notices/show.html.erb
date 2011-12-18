@@ -1,5 +1,4 @@
 <% form_for(@notice) do |f| %>
-<%= f.error_messages %>
   <table>
     <tr>  
       <td>* <%= "Título" %></td>
@@ -9,15 +8,15 @@
     <tr>  
       <td><%= "Imagen" %></td>
       <% if @notice.notice_photo %>
-      <td><%=  image_tag url_for_file_column("notice", "notice_photo"), :size=>"300x200" %></td>
+        <td align="center" ><%=  image_tag url_for_file_column("notice", "notice_photo"), :size=>"300x200" %></td>
       <% else %>
-      <td><%=  image_tag "NoticeDefault.png", :size=>"300x200" %></td>
+      <td align="center"><%=  image_tag "NoticeDefault.png", :size=>"300x200" %></td>
       <% end   %>
     </tr>
     
     <tr>
       <td><%= "Descripción"  %> </td>
-      <td><%=h @notice.description%></td>
+      <td><%= f.text_area  :description, :size => "60x10", :disabled=>true, :style => "resize:none"%></td>
     </tr>
 
     <tr>

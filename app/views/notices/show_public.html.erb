@@ -1,5 +1,4 @@
 <div id="content-wrap">
-    		<%= render "main_page/lateralMenu.html" %>
   <div id="main" >
       <center><H2><%= @notice.title%></h2></center>
       <br>
@@ -15,4 +14,4 @@
       </p>
      <%=link_to "Volver", :controller => "notices", :action => "index_public",:id =>'find'%>
   </div>
-
+    <%= render :partial => "main_page/acordeon" %>

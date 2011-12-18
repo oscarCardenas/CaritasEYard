@@ -1,5 +1,5 @@
 <%if current_user%>
-<h1>Editing notice</h1>
+<h1>Editando Noticia</h1>
 
 <% form_for(@notice, :html => {:multipart => true}) do |f| %>
 <%= f.error_messages %>
@@ -11,7 +11,7 @@
     
     <tr>
       <td><%= "Descripción"  %> </td>
-      <td><%= f.text_area :description, :size => "100x10"%></td>
+      <td><%= f.text_area :description, :size => "60x10", :style => "resize:none" %></td>
     </tr>
     
     <tr>  

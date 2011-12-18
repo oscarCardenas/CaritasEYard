@@ -125,7 +125,7 @@ class SocialWorksController < ApplicationController
   
   def destroy_all_photos
     @social_work = SocialWork.find(params[:id])
-    @social_work.social_work_photos.clear
+    @social_work.social_work_photos.destroy_all
 
     respond_to do |format|
       format.html { redirect_to(social_works_url) }

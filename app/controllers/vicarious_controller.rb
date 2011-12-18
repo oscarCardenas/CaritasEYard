@@ -9,20 +9,18 @@ class VicariousController < ApplicationController
       format.xml  { render :xml => @vicarious }
     end
   end
+    def index
+    #@vicarious = Vicariou.all
+    @vicarious = Vicariou.search(params[:search])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @vicarious }
+    end
+  end
 
   # GET /vicarious/1
   # GET /vicarious/1.xml
-  def show
-    @vicariou = Vicariou.find(params[:id])
-   
-      @pastor = Pastor.find(@vicariou.pastor_id)
-      @parish = Parish.all(:select => "id,parish_name,ubication,telephone",:conditions=> ["id in (select id from parishes where vicariou_id= ?)","#{@vicariou.id}"])
-      respond_to do |format|
-        format.html # show.html.erb
-        format.xml  { render :xml => @vicariou }
-      end
-  
-  end
+
 
   # GET /vicarious/new
   # GET /vicarious/new.xml
@@ -52,6 +50,7 @@ class VicariousController < ApplicationController
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @vicariou.errors, :status => :unprocessable_entity }
+        @pastor = Pastor.all(:select => "id,name,primary_last_name,second_last_name",:conditions=> ["id not in (select pastor_id from parishes) and id not in (select pastor_id from vicarious)"])
       end
     end
   end
@@ -68,6 +67,7 @@ class VicariousController < ApplicationController
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @vicariou.errors, :status => :unprocessable_entity }
+        @pastor = Pastor.all(:select => "id,name,primary_last_name,second_last_name",:conditions=> ["id not in (select pastor_id from parishes) and id not in (select pastor_id from vicarious) or id= ?","#{@vicariou.pastor_id}"])
       end
     end
   end

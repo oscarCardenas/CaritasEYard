@@ -21,6 +21,11 @@ class SocialCard < ActiveRecord::Base
   validates_numericality_of :movil_reference, :greater_than => 10000000, :less_than => 99999999,:allow_blank => true  ,:message => "  no es un numero o es incorrecto" 
   validates_presence_of :occupation_reference
   
+  
+  file_column :social_card_photo
+  
+  validates_file_format_of :social_card_photo, :in => ["gif", "jpg", "png"]
+  validates_filesize_of :social_card_photo, :in => 1.kilobytes..3000.kilobytes
   def self.search(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])

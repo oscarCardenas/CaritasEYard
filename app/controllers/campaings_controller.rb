@@ -117,7 +117,7 @@ class CampaingsController < ApplicationController
   
   def destroy_all_photos
     @campaing = Campaing.find(params[:id])
-    @campaing.campaing_photos.clear
+    @campaing.campaing_photos.destroy_all
 
     respond_to do |format|
       format.html { redirect_to(campaings_url) }

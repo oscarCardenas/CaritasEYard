@@ -8,6 +8,12 @@ class Vicariou < ActiveRecord::Base
   validates_presence_of :telephone
   validates_presence_of :pastor_id
   
+  validates_length_of :name_vicariou, :maximum => 50
+  validates_length_of :ubication, :maximum => 255
+  validates_length_of :transport, :maximum => 255
+  validates_length_of :telephone, :maximum => 30
+  #validates_numericality_of :telephone
+  
   validates_uniqueness_of :name_vicariou, :message => "La Vicaria ya Existe"
   
   def self.search(search)

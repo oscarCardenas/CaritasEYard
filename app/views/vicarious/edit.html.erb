@@ -9,7 +9,7 @@
 <tr><td>*Transporte</td><td><%= f.text_field :transport %></td></tr>
 <tr><td>*Telefono</td><td><%= f.text_field :telephone %></td></tr>
 <tr><td>*Nombre del Vicario</td><td>
-    <select name="vicariou[pastor_id]">
+    <select name="vicariou[pastor_id]" style="width: 195px">
     <% @pastor.each do |pastor| %>
     <option value="<%=pastor.id%>" <%='selected' if pastor.id == @vicariou.pastor_id %>>
                <%=pastor.name+" "+pastor.primary_last_name+" "+pastor.second_last_name%>

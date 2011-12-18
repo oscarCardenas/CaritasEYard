@@ -1,20 +1,22 @@
 <CENTER><h1>Campa&ntilde;a</h1></center>
 <% form_for(@social_work, :html => {:multipart => true}) do |f| %>
-<TABLE ALIGN="CENTER">
+<TABLE ALIGN="CENTER" width="700">
 
 <TR>
-<TD WIDTH=100>
-<center>
+<TD align="center">
   <p>
   <b>Nombre: </b>
   <%=h @social_work.name %>
  </p>
-</center>
 </TD>
 </TR>
 
 <tr>
-  <td>
+    <td><%= link_to 'Eliminar Fotos',:confirm => "esta por eliminar todas las imagenes de esta campaña, desea continuar??", :controller => "social_works", :action=>"destroy_all_photos", :id => @social_work %></td>
+</tr>
+
+<tr>
+  <td align="center">
     <% @social_work.social_work_photos.each do |photo| %>
     <%= image_tag photo.data.url, :size => "320x240" %>
     <% end %>

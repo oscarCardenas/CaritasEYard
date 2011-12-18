@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @courses }
+      format.xls
     end
   end
 
@@ -24,7 +25,9 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.xml
   def new
-    @course = Course.new
+    if(params[:workshop_code])
+    @course = Course.new(:workshop_id=>params[:workshop_code],:courses_types_id=>params[:course_type_code])
+    end
     @volunteers = Volunteer.find(:all)
     respond_to do |format|
       format.html # new.html.erb

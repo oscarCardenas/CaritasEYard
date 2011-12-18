@@ -14,7 +14,7 @@
     <tr>
       <td>Responsable</td>
       <td>
-        <select name="group[volunteer_id]">
+        <select name="group[volunteer_id]" style="width: 195px">
           <option value="-1"></option>
           <% if @volunteers
             @volunteers.each do |volunteer| %>
@@ -27,7 +27,7 @@
       </td>
     </tr>
     <tr><td>*Parroquia a la que Pertenece</td><td>
-    <select name="group[parish_id]">
+    <select name="group[parish_id]" style="width: 150px">
     <% @parish.each do |parish| %>
     <option value="<%=parish.id%>" <%='selected' if parish.id == @group.parish_id %>>
                <%=parish.parish_name%>

@@ -15,7 +15,7 @@
       <tr>
         <tr>
         <td>*Vicaria a la que Pertenece:</td>
-        <td><select name="parish[vicariou_id]">
+        <td><select name="parish[vicariou_id]" style="width: 150px">
             <% @vicariou.each do |vicariou| %>
               <option value="<%=vicariou.id%>" <%='selected' if vicariou.id == @parish.vicariou_id %>>
                <%=vicariou.name_vicariou%>
@@ -31,10 +31,7 @@
         <td>*Telefono</td>
         <td><%= p.text_field :telephone %></td>
       </tr>
-      <tr>
-        <td>Nombre del Contacto</td>
-        <td><%= p.text_field :contact %></td>
-      </tr>
+
       <tr>
         <td>Telefono del Contacto</td>
         <td><%= p.text_field :contact_telephone %></td>
@@ -42,7 +39,7 @@
       <tr>
         <td>*Nombre del Parroco</td>
         <td>
-          <select name="parish[pastor_id]">
+          <select name="parish[pastor_id]" style="width: 195px">
             <% @pastor.each do |pastor| %>
               <option value="<%=pastor.id%>" <%='selected' if pastor.id == @parish.pastor_id %>>
                <%=pastor.name+" "+pastor.primary_last_name+" "+pastor.second_last_name%>

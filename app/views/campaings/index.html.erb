@@ -45,8 +45,6 @@
         <tr id = 'head-table'>
           <th>Nombre</th>
           <th>Lugar</th>
-          <th>Descripcion</th>
-          <th>Fecha de inicio</th>
           <th>Fecha de finalizacion</th>
           <th>Responsable</th>
           <% if current_user %>
@@ -58,15 +56,13 @@
           <tr>
             <td><%=link_to campaing.name, campaing %></td>
             <td><%=h campaing.location %></td>
-            <td><%=h campaing.description %></td>
-            <td><%=h campaing.date_ini %></td>
             <td><%=h campaing.date_end %></td>
             <td><%=h campaing.responsible %></td> 
             <% if current_user %>
               <td><%= link_to 'Editar', edit_campaing_path(campaing) %></td> 
-              <td><%= link_to 'Agregar fotos', :controller => "campaings", :action=>"add_photos", :id => campaing %></td>
-              <td><%= link_to 'Ver fotos', :controller => "campaings", :action=>"show_photos", :id => campaing %></td>
-              <td><%= link_to 'Eliminar fotos', :confirm => "esta por eliminar todas las imagenes de esta campaña, desea continuar??", :controller => "campaings", :action => "destroy_all_photos", :id => campaing  %> </td>
+              <td><%= link_to 'Fotos', :controller => "campaings", :action=>"add_photos", :id => campaing %></td>
+              <%#*<td><%= link_to "Donaciones", :controller => "donations", :campaing=> campaing.id%>
+              <%#*</td>%>
             <%end%>
           </tr>
         <% end %>

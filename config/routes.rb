@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :donations
+
   map.resources :workshop_course_types
 
   map.resources :assistance_lists
@@ -15,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :helps
   map.resources :social_cards
-  map.resources :parishes
+  map.resources :parishes, :collection => {:report=>:get}
   map.resources :notices
   map.resources :vicarious
 

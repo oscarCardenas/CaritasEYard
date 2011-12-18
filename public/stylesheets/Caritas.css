@@ -128,23 +128,19 @@ form {
 	margin: 15px 10px;
 	padding: 5px 10px 20px 10px;
 	}
-label {
+/*label {
 	display: block;
 	font-weight: bold;
 	margin: 8px 0 5px 0;
 	color: #cc0000;
-}
-input, textarea, select {
+}*/
+input, select {
 	padding: 4px;
 	color: #666666;
   	border-width: 1px;
   	border-style: solid;
   	border-color: #d4d4d4 #ebebeb #ebebeb #d4d4d4;
 	font: normal 11px Verdana, sans-serif;
-}
-textarea {
-	width: 200px;
-	display: block;
 }
 
 /*

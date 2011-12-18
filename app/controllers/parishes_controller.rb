@@ -3,11 +3,19 @@ class ParishesController < ApplicationController
   # GET /parishes.xml
   def index
     @parishes = Parish.search(params[:search]) 
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @parishes }
+      format.xls
     end
+  end
+    def report
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xls
+        format.html { redirect_to(parishes_url) }        
+      end  
   end
 
   # GET /parishes/1

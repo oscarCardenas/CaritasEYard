@@ -44,22 +44,18 @@
   </tr>
   
   <tr>
-  <td><b> * Encargado</b></td>
-    <td><%= f.text_field :in_charge %></td>    
-  </tr>  
-  <tr>
     <td>
       <b>Cursos:</b>
     </td>
       <td>
         <% coursesList = CoursesType.all.map { |courses_type| [courses_type.name, courses_type.id] } %>
         <%= select_tag "s2", options_from_collection_for_select(CoursesType.all, :id , :name),:multiple=>true %>  
-      
+        <br/>
       </td>
   </tr>
   <tr>
     <td><b>Observaciones</b></td>
-    <td><%= f.text_area :observations , :rows=>6, :cols=>22%></td>
+    <td><%= f.text_area :observations , :rows=>6, :cols=>22, :style => "resize:none"%></td>
   </tr>   
 
   
@@ -129,7 +125,7 @@
 <script type="text/javascript">
         $(document).ready(function() {
             $("#s1").dropdownchecklist();
-            $("#s2").dropdownchecklist( {icon: {}, width: 150 } );
+            $("#s2").dropdownchecklist( {icon: {}, width: 190, maxDropHeight: 150, emptyText: "Selecione..." } );
             $("#s3").dropdownchecklist( { width: 150 } );
             $("#s4").dropdownchecklist( { maxDropHeight: 150 } );
             $("#s5").dropdownchecklist( { firstItemChecksAll: true, explicitClose: '...close' } );

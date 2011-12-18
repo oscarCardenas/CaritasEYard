@@ -27,7 +27,11 @@
           <% @social_cards.each do |social_card| %>
             <tr>
               <td><%= link_to social_card.name,social_card %></td>
-              <td><%=h social_card.parish_church%></td>
+              <td>
+                 <% @parishes.each do |parish| %>
+                  <%= parish.parish_name.to_s  if parish.id == social_card.parish_id  %>
+                <%end%>
+              </td>
               <td><%= link_to 'Editar', edit_social_card_path(social_card) %></td>
               <td><%= link_to 'Eliminar', social_card, :confirm => 'Esta seguro?', :method => :delete %></td>
             </tr>

@@ -13,15 +13,20 @@ class SocialWork < ActiveRecord::Base
   validates_presence_of :responsible
   validates_presence_of :location  
   validates_presence_of :responsible_filling
-  #validates_numericality_of :phone, :greater_than => 1000000, :less_than => 9999999,:allow_blank => true  , :message => "El Celular no es un numero o es incorrecto"
-  #validates_numericality_of :movil, :greater_than => 10000000, :less_than => 99999999,:allow_blank => true  ,:message => "El Celular no es un numero o es incorrecto"         
+  
+  validates_length_of :parish, :maximum => 255
+  validates_length_of :social_work, :maximum => 255
+  validates_length_of :responsible, :maximum => 255
+  validates_length_of :location, :maximum => 255
+  validates_length_of :phone, :maximum => 30
+  validates_length_of :movil, :maximum => 30
+  validates_length_of :email, :maximum => 255
+  validates_length_of :transport, :maximum => 255
+  validates_length_of :responsible_filling, :maximum => 255
+  validates_length_of :name, :maximum => 255
+  
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{0,50})\Z/i, :allow_blank => true  
-#  validates_format_of :name, :with => /^([a-zA-Z\ ]{3,50})$/i
-#  validates_format_of :responsible, :with => /^([a-zA-Z\ ]{3,50})$/i
-#  validates_format_of :responsible_filling, :with => /^([a-zA-Z\ ]{3,50})$/i
-#  validates_format_of :location, :with => /^([a-zA-Z\ \-]{3,20})$/i
-#  validates_format_of :parish, :with => /^([a-zA-Z\ ]{3,50})$/i
-#  validates_format_of :social_work, :with => /^([a-zA-Z\ ]{3,50})$/i
+
 
   #put class methods here
   def self.search(search)
@@ -45,7 +50,7 @@ class SocialWork < ActiveRecord::Base
     "#{self.name}"
   end
   
-  def getRandomPicture (id)
+  def self.getRandomPicture (id)
     @photos=SocialWorkPhoto.find(:all,:order => "id",:conditions => ['social_work_id = ?',id])
     @photos[rand(@photos.count)]
   end

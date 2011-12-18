@@ -7,6 +7,19 @@
     <%= submit_tag "Buscar", :name => nil %>
   </p>
 <% end %>
+  <table>
+        <tr>
+          <td>
+             <%= link_to 'Reporte de Parroquias por Vicaria', parishes_path(:xls) %>
+          </td>
+          <td>
+             <%= link_to 'Reporte de Parroquias Ordenado por Vicaria', :controller => :parishes, :action => 'report.xls' %>
+          </td>
+          <td>
+             <%= link_to 'Reporte de Cursos por Parroquia', workshops_path(:xls) %>
+          </td> 
+            </tr>
+      </table>
 <table>
   <tr>
     <td>
@@ -14,8 +27,11 @@
         <%= button_to 'Crear Parroquia', new_parish_path %>
       </div>
     </td>
+      
+            
   <tr>
     <td>
+      
       <table border="3">
         <tr id ='head-table'>
           <th>Nombre Parroquia</th>
@@ -28,6 +44,7 @@
         <% @parishes.each do |parish| %>
           <%if parish.state %>
             <tr>
+              
               <td><%= link_to  parish.parish_name,parish %></td>
               <td><%=h parish.ubication %></td>
               <td><%=h parish.telephone %></td>              
@@ -44,6 +61,7 @@
         <% end %>
       </table>
     </td>
+    
   </tr>
 </table>
 
