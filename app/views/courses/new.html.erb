@@ -16,16 +16,16 @@
 
 <TABLE   ALIGN="CENTER">      
   <tr>
-    <td>* Nombre<br /></td>
+    <td>&nbsp;&nbsp;&nbsp;Nombre<br /></td>
     <td><%= h CoursesType.find(@course.courses_types_id).name %></td>
   </tr>
   <tr>
-    <td>* Responsable<br /></td>
+    <td><%= f.label :responsible, "* Responsable" %><br /></td>
     <td><%= f.text_field :responsible %></td>
   </tr>
   
   <tr>
-    <td>&nbsp&nbsp&nbspFecha<br /></td>
+    <td>&nbsp&nbsp&nbspFecha Inicial<br /></td>
     <td><%= f.date_select :date_ini %></td>
   </tr>
   
@@ -35,7 +35,7 @@
   </tr>
   
   <tr>
-      <td>* Seleccione los Asistentes</td>
+      <td>&nbsp;&nbsp;&nbsp;Seleccione los Asistentes</td>
       <td>
    
             <% lista_voluntarios = Volunteer.all.map { |volunteer| [volunteer.name.to_s + " " + volunteer.last_name, volunteer.id] } %>            
@@ -60,7 +60,7 @@
 
 
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>
 
 <script type="text/javascript">

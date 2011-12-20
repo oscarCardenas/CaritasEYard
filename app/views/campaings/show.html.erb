@@ -5,7 +5,7 @@
 <TR>
 <TD WIDTH=100>
   <p>
-  <b>Nombre:</b>
+  <b>Nombre</b>
  </p>
 </TD>
 
@@ -19,7 +19,7 @@
 <TR>
 <TD WIDTH=100>
   <p>
-  <b>Lugar:</b>
+  <b>Lugar</b>
 </p>
 </TD>
 
@@ -34,13 +34,13 @@
 <TR>
 <TD WIDTH=100>
   <p>
-  <b>Descripcion:</b>
+  <b>Descripción</b>
 
 </p>
 </TD>
 
 <TD WIDTH=100>
-  <p>
+  <p class="word_wrap">
     <%= f.text_area  :description, :size => "60x20", :style=> "resize:none", :disabled => true %>
 </p>
 </TD>
@@ -49,7 +49,7 @@
 <TR>
 <TD WIDTH=100>
   <p>
-  <b>Fecha de inicio:</b>
+  <b>Fecha de Inicio</b>
   
 </p>
 </TD>
@@ -67,7 +67,7 @@
 <TD WIDTH=100>
   
 <p>
-  <b>Fecha de finalizacion:</b>
+  <b>Fecha de Finalización</b>
 </p>
 </TD>
 
@@ -81,13 +81,13 @@
 <TR>
 <TD WIDTH=100>
   <p>
-  <b>Responsable:</b>
+  <b>Responsable</b>
   
 </p>
 </TD>
 
 <TD WIDTH=100>
-  <p>
+  <p class="word_wrap">
   <%=h @campaing.responsible %>
 </p>
 </TD>

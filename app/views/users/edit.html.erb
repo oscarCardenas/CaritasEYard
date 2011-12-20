@@ -1,5 +1,5 @@
 <%if current_user%>
-<h1>Editing user</h1>
+<h1>Editar Usuario</h1>
 
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
@@ -17,12 +17,12 @@
     <%= f.text_field :password %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Actualizar' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', root_url %>
+<%= link_to 'Ver', @user %> |
+<%= link_to 'Volver', root_url %>
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

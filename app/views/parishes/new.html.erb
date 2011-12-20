@@ -5,15 +5,15 @@
   <%= p.error_messages %>
     <table>
       <tr>
-        <td>*Nombre Parroquia</td>
+        <td><%= p.label :parish_name, "*&nbsp;Nombre de Parroquia" %></td>
         <td><%= p.text_field :parish_name %></td>
       </tr>
       <tr>
-        <td>*Ubicacion</td>
+        <td><%= p.label :ubication, "*&nbsp;Ubicación" %></td>
         <td><%= p.text_field :ubication %></td>
       </tr>
       <tr>
-        <td>*Vicaria a la que Pertenece:</td>
+        <td>*&nbsp;Vicaria a la que Pertenece</td>
         <td><select name="parish[vicariou_id]" style="width: 150px"> 
 <% if @vicariou  
     @vicariou.each do |vicariou| %>
@@ -24,16 +24,23 @@
     <%end%>
 </select></td>
       </tr>
-        <td>*Transporte</td>
+        <td>&nbsp;&nbsp;&nbsp;Transporte</td>
         <td><%= p.text_field :transport %></td>
       </tr>
       <tr>
-        <td>*Telefono Parroquia</td>
+        <td><%= p.label :telephone, "*&nbsp;Teléfono de la Parroquia" %></td>
         <td><%= p.text_field :telephone %></td>
       </tr>
 
+      
       <tr>
-        <td>Telefono Contacto</td>
+        <td>&nbsp;&nbsp;&nbsp;Contacto</td>
+        <td><%= p.text_field :contact %></td>
+      </tr>
+
+ 
+      <tr>
+        <td>&nbsp;&nbsp;&nbsp;Teléfono del Contacto</td>
         <td><%= p.text_field :contact_telephone %></td>
       </tr>
 
@@ -42,7 +49,7 @@
       <td><%= p.select   :current_state, Parish::PARISH_STATES %></td>
     </tr>
       <tr>
-        <td>*Nombre del Parroco</td>
+        <td>* Nombre del Párroco</td>
         <td><select name="parish[pastor_id]" style="width: 195px">
     <% if @pastor  
     @pastor.each do |pastor| %>
@@ -54,7 +61,7 @@
 </select></td>
       </tr>
       <tr>
-      <td><%= "Fotografia De La Parroquia"  %> </td>
+      <td><%= "&nbsp;&nbsp;&nbsp;Fotografía de la Parroquia"  %> </td>
       <td><%= file_column_field "parish",  "parish_photo" %></td>
     </tr>
       <tr>
@@ -70,6 +77,6 @@
     </table>
 <% end %>
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>
 

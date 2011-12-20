@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218202714) do
+ActiveRecord::Schema.define(:version => 20111220041400) do
 
   create_table "assistance_lists", :force => true do |t|
     t.datetime "created_at"
@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(:version => 20111218202714) do
     t.string   "parish_name"
     t.string   "ubication"
     t.string   "transport"
-    t.integer  "telephone"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pastor_id"
@@ -129,14 +128,15 @@ ActiveRecord::Schema.define(:version => 20111218202714) do
     t.string   "parish_photo"
     t.boolean  "state",             :default => true
     t.string   "current_state"
+    t.string   "telephone"
   end
 
   create_table "pastors", :force => true do |t|
     t.string   "name"
     t.string   "primary_last_name"
     t.string   "second_last_name"
-    t.integer  "phone_number"
-    t.integer  "cellphone_number"
+    t.string   "phone_number"
+    t.string   "cellphone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date_of_birth"
@@ -158,8 +158,6 @@ ActiveRecord::Schema.define(:version => 20111218202714) do
     t.date     "birthday"
     t.string   "birthday_location"
     t.integer  "identity_card"
-    t.integer  "phone"
-    t.integer  "movil"
     t.string   "address"
     t.string   "location_reference"
     t.string   "grade_school"
@@ -170,8 +168,6 @@ ActiveRecord::Schema.define(:version => 20111218202714) do
     t.string   "derivative_by"
     t.string   "reference_person"
     t.string   "address_reference"
-    t.integer  "phone_reference"
-    t.integer  "movil_reference"
     t.integer  "age_reference"
     t.string   "occupation_reference"
     t.string   "type_of_case"
@@ -182,6 +178,10 @@ ActiveRecord::Schema.define(:version => 20111218202714) do
     t.boolean  "state",                    :default => true
     t.integer  "parish_id"
     t.string   "social_card_photo"
+    t.string   "phone"
+    t.string   "movil"
+    t.string   "phone_reference"
+    t.string   "movil_reference"
   end
 
   create_table "social_work_photos", :force => true do |t|

@@ -1,23 +1,24 @@
 <div id="content-wrap">
 
   <div id="main" >
+    <%= render :partial => "main_page/social_work_photo" %>
     <CENTER><h2><%= @social_work.name %></h2></center>          
           <br/>
           <br/>
           <p class="mostrarContent">
-            <b>Parroquia:<%= @social_work.parish %></b>  
+            <b>Parroquia: <%= @social_work.parish %></b>  
           </p>                   
 
           <p class="mostrarContent">
-          <b>Descripcion:</b>
+          <b>Descripción</b>
           <br/>
-          <%=h @social_work.description %>
+          <p class="word_wrap"><%=h @social_work.description %> </p>
           </p>
           <p class="mostrarContent">
-            <b>Parroquia:<%= @social_work.location %></b>
+            <b>Lugar: <%= @social_work.location %></b>
           </p>
           <p class="mostrarContent">
-            <%= link_to "Ver A Detalle", @social_work %>            
+            <%= link_to "Ver a Detalle", @social_work %>            
           </p>
   </div>           
             <%= render :partial => "main_page/acordeon" %>

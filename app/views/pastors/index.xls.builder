@@ -41,8 +41,8 @@ xml.Workbook({
         xml.Row do          
           xml.Cell { xml.Data Pastor.find(parish.pastor_id).name + " "+Pastor.find(parish.pastor_id).primary_last_name+ " "+Pastor.find(parish.pastor_id).second_last_name, 'ss:Type' => 'String' }
           xml.Cell { xml.Data parish.parish_name, 'ss:Type' => 'String' }                    
-          xml.Cell { xml.Data Pastor.find(parish.pastor_id).phone_number, 'ss:Type' => 'Number' } 
-          xml.Cell { xml.Data Pastor.find(parish.pastor_id).cellphone_number, 'ss:Type' => 'Number' }           
+          xml.Cell { xml.Data Pastor.find(parish.pastor_id).phone_number, 'ss:Type' => 'String' } 
+          xml.Cell { xml.Data Pastor.find(parish.pastor_id).cellphone_number, 'ss:Type' => 'String' }           
           xml.Cell { xml.Data '', 'ss:Type' => 'String' }                                         
           xml.Cell { xml.Data '', 'ss:Type' => 'String' }
         end

@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @parish = Parish.find(:all)
-    @volunteers = Volunteer.all(:select => "id,name,last_name,second_last_name",:conditions=> ['id not in (select volunteer_id from groups) or id!=0'])
+    @volunteers = Volunteer.all(:select => "id,name,last_name,second_last_name",:conditions=> ["id not in (select volunteer_id from groups)"])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +45,9 @@ class GroupsController < ApplicationController
   # POST /groups.xml
   def create
     @group = Group.new(params[:group])
-    
+    @parish = Parish.find(:all)
+    @volunteers = Volunteer.find(:all)
+
     respond_to do |format|
       if @group.save
         format.html { redirect_to(@group, :notice => 'El grupo se creo correctamente.') }

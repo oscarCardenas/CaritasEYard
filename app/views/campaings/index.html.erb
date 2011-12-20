@@ -1,8 +1,8 @@
-<h1>Campaña</h1>
+<h1>Campañas</h1>
 
 <p>
   <% form_tag campaings_path, :method => 'get' do %>
-    Nombre: <%= text_field_tag :search, params[:search] %>
+    Nombre <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Buscar", :name => nil %>
   <% end %>
 </p>
@@ -45,7 +45,7 @@
         <tr id = 'head-table'>
           <th>Nombre</th>
           <th>Lugar</th>
-          <th>Fecha de finalizacion</th>
+          <th>Fecha de Finalización</th>
           <th>Responsable</th>
           <% if current_user %>
             <th colspan="4">Acciones</th>
@@ -55,9 +55,9 @@
         <% @campaings.each do |campaing| %>
           <tr>
             <td><%=link_to campaing.name, campaing %></td>
-            <td><%=h campaing.location %></td>
+            <td><p class="word_wrap"><%=h campaing.location %></p></td>
             <td><%=h campaing.date_end %></td>
-            <td><%=h campaing.responsible %></td> 
+            <td><p class="word_wrap"><%=h campaing.responsible %></p></td>
             <% if current_user %>
               <td><%= link_to 'Editar', edit_campaing_path(campaing) %></td> 
               <td><%= link_to 'Fotos', :controller => "campaings", :action=>"add_photos", :id => campaing %></td>

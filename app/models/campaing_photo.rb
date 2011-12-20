@@ -3,7 +3,7 @@ class CampaingPhoto < ActiveRecord::Base
   has_attached_file :data
   before_post_process :normalize_file_name
   
-  validates_attachment_size :data, :less_than => 500.kilobytes, :message => 'las imagenes no puede tener un tamaño mayor a 500 KB'
+  validates_attachment_size :data, :less_than => 1000.kilobytes, :message => 'las imagenes no puede tener un tamaño mayor a 1 MB'
   validates_attachment_content_type :data, :content_type => ['image/jpeg', 'image/png'], :message => 'el archivo debe ser de formato JPEG o PNG'
   
   private

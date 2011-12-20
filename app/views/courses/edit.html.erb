@@ -6,7 +6,7 @@
 <%= javascript_include_tag "ui.dropdownchecklist-1.4-min"  %>
 
 <%if current_user%>
-<CENTER><h1>Actualizar Cursos</h1></center>
+<CENTER><h1>Actualizar Curso</h1></center>
 
 <% form_for(@course) do |f| %>
   <%= f.error_messages %>
@@ -15,17 +15,17 @@
 <TABLE   ALIGN="CENTER">
   
   <tr>        
-    <td>* Nombre<br /></td>
+    <td>&nbsp;&nbsp;&nbsp;Nombre<br /></td>
     <td><%=  CoursesType.find(@course.courses_types_id).name %></td>
   </tr>
   
   <tr>
-    <td>* Responsable<br /></td>
+    <td><%= f.label :responsible, "* Responsable" %><br /></td>
     <td><%= f.text_field :responsible %></td>
   </tr>
   
   <tr>
-    <td>&nbsp&nbsp&nbspFecha<br /></td>
+    <td>&nbsp&nbsp&nbspFecha Inicial<br /></td>
     <td><%= f.date_select :date_ini %></td>
   </tr>
     
@@ -34,7 +34,7 @@
     <td><%= f.text_area :description , :rows=>6, :cols=>22 , :style => "resize:none"%></td>
   </tr>
     <tr>
-      <td>* Seleccione los Asistentes</td>
+      <td>&nbsp;&nbsp;&nbsp;Seleccione los Asistentes</td>
       <td>
         <% lista_voluntarios = Volunteer.all.map { |volunteer| [volunteer.name.to_s + " " + volunteer.last_name, volunteer.id] } %>                                        
         <% volunteers =[]  
@@ -60,7 +60,7 @@
    </TABLE>
 <% end %>
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>
 
 <script type="text/javascript">

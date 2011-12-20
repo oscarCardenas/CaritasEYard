@@ -5,7 +5,5 @@ class CambiandoTipoDatosEnObraSocial < ActiveRecord::Migration
   end
 
   def self.down
-    change_column :social_works, :phone, :integer
-    change_column :social_works, :movil, :integer
   end
 end

@@ -4,17 +4,17 @@
 <table>
 
   <tr>
-    <td>Nombre</td>
+    <td><b>Nombre</b></td>
     <td><%=h @group.name %></td>
   </tr>
 
   <tr>
-    <td>Responsable</td>
+    <td><b>Responsable</b></td>
     <td><%=h @group.volunteer %></td>
   </tr>
 
   <tr>
-    <td>Voluntarios</td>
+    <td><b>Voluntarios</b></td>
     <td>
       <ul style="list-style-type: disc;">
       <% volunteers = Volunteer.find(:all,:conditions => ['group_id = ? ', "#{@group.id}"])
@@ -26,17 +26,17 @@
   </tr>
   <tr>
       <td>
-        <b>Parroquia a la que pertenece:</b>
+        <b>Parroquia a la que Pertenece</b>
       </td>
       <td><%=h if @group.parish_id.nil?
          @parish.parish_name %></td>
     </tr>
 <tr>  
-      <td><%= "Fotografia O Insignia" %></td>
+      <td><b><%= "Fotografía o Insignia del Grupo" %></b></td>
       <% if @group.group_photo %>
       <td><%=  image_tag url_for_file_column("group", "group_photo"), :size=>"300x200" %></td>
       <% else %>
-      <td>No Esta Disponible La Fotografia</td>
+      <td>No está disponible la fotografía</td>
       <% end   %>
     </tr>
   <tr align="right">
@@ -48,5 +48,5 @@
 
 </table>
 <%else%>
-  <h1>no puede realizar esta accion, porfavor contactese</h1>
+  <h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

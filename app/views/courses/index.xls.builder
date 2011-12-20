@@ -20,7 +20,7 @@ xml.Workbook({
       xml.Row do        
       end 
          
-   for courses in @courses
+      for courses in @courses_report
       # Rows
       xml.Row do
         xml.Cell { xml.Data courses.name, 'ss:Type' => 'String' }

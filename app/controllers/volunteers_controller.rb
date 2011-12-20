@@ -54,6 +54,7 @@ class VolunteersController < ApplicationController
         t = Volunteer.find(@volunteer.id)
         t.update_attributes(:state => true)
       else
+        @groups = Group.find(:all)
         format.html { render :action => "new" }
         format.xml  { render :xml => @volunteer.errors, :status => :unprocessable_entity }
       end
@@ -70,6 +71,7 @@ class VolunteersController < ApplicationController
         format.html { redirect_to(@volunteer, :notice => 'El voluntario fue editado exitosamente.') }
         format.xml  { head :ok }
       else
+        @groups = Group.find(:all)
         format.html { render :action => "edit" }
         format.xml  { render :xml => @volunteer.errors, :status => :unprocessable_entity }
       end

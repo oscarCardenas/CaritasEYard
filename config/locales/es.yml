@@ -354,6 +354,7 @@ en:
         idCourse: "Curso"
       group:
         name: "Nombre"
+        parish_id: "Parroquia"
       volunteer:
         name: "Nombre"
         last_name: "Apellido paterno"

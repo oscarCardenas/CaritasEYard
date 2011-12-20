@@ -5,22 +5,18 @@ class Pastor < ActiveRecord::Base
   
   validates_presence_of :name
   validates_presence_of :primary_last_name
-  validates_presence_of :second_last_name
   validates_presence_of :date_of_birth
   
-  validates_format_of :name, :with => /^([a-zA-Z\ ]{3,50})$/i
-  validates_format_of :primary_last_name, :with => /^([a-zA-Z\ \-]{3,50})$/i
-  validates_format_of :second_last_name, :with => /^([a-zA-Z\ \-]{3,50})$/i
-  
-  validates_numericality_of :phone_number, :allow_nil => true, :only_integer => true, :less_than => 999999999, :message => "no es un numero valido"
-  validates_numericality_of :cellphone_number, :allow_nil => true, :only_integer => true, :less_than => 999999999, :message => "no es un numero valido"
-
-
+  validates_length_of :name, :maximum => 50 
+  validates_length_of :primary_last_name, :maximum => 50
+  validates_length_of :second_last_name, :maximum => 50, :allow_nil => true, :allow_blank => true
+  validates_length_of :phone_number, :maximum => 50, :allow_nil => true, :allow_blank => true
+  validates_length_of :cellphone_number, :maximum => 50, :allow_nil => true, :allow_blank => true
   #deco prueba
     #put class methods here
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['LOWER(name) LIKE ? OR LOWER(primary_last_name) LIKE ? OR LOWER(second_last_name) LIKE ?', search.downcase,search.downcase,search.downcase])
     else
       find(:all)
     end

@@ -7,23 +7,23 @@
   <table>
 
     <tr>
-      <td>* Nombre</td>
+      <td><%= f.label :name, "* Nombre" %></td>
       <td><%= f.text_field :name %></td>
     </tr>
     <tr>
-      <td>* Apellido Paterno</td>
+      <td><%= f.label :last_name, "* Apellido Paterno" %></td>
       <td><%= f.text_field :last_name %></td>
     </tr>
     <tr>
-      <td>* Apellido Materno</td>
+      <td>&nbsp;&nbsp;&nbsp;<%= f.label :second_last_name, "Apellido Materno" %></td>
       <td><%= f.text_field :second_last_name %></td>
     </tr>
     <tr>
-      <td>&nbsp;&nbsp;&nbsp;Profesion</td>
+      <td>&nbsp;&nbsp;&nbsp;Profesión</td>
       <td><%= f.text_field :profession %></td>
     </tr>
     <tr>
-      <td>&nbsp;&nbsp;&nbsp;Telefono</td>
+      <td>&nbsp;&nbsp;&nbsp;Teléfono</td>
       <td><%= f.text_field :phone_number %></td>
     </tr>
     <tr>
@@ -31,22 +31,22 @@
       <td><%= f.text_field :movil %></td>
     </tr>
     <tr>
-      <td>* Fecha de Nacimiento</td>
+      <td><%= f.label :date_of_birth, "* Fecha de Nacimiento" %></td>
       <td><%= f.date_select :date_of_birth ,  :start_year => 1935%></td>
     </tr>
     <tr>
-        <td>* Genero</td>      
-        <td>masculino
+        <td><%= f.label :genre, "* Género" %></td>      
+        <td>Masculino
           <%= f.radio_button(:genre, "masculino") %>         
-          femenino
+          Femenino
           <%= f.radio_button(:genre, "femenino") %></td>  
       </tr>
     <tr>
-      <td>* Cargo</td>
+      <td><%= f.label :position, "* Cargo" %></td>
       <td><%= f.text_field :position %></td>
     </tr>
     <tr>
-      <td>&nbsp;&nbsp;&nbsp;Email</td>
+      <td>&nbsp;&nbsp;&nbsp;E-mail</td>
       <td><%= f.text_field :email %></td>
     </tr>
     
@@ -63,11 +63,11 @@
         </td>
       </tr>
       <tr>  
-      <td><%= "Fotografia Del Voluntario" %></td>
+      <td>&nbsp;&nbsp;&nbsp;<%= "Fotografía del Voluntario" %></td>
       <% if @volunteer.volunteer_photo %>
       <td><%=  image_tag url_for_file_column("volunteer", "volunteer_photo"), :size=>"300x200" %>
       <% else %>
-      <td>No Esta Disponible La Imagen
+      <td>No está disponible la fotografía
       <% end %>
       <br>
       <%= file_column_field "volunteer", "volunteer_photo"%> </td>
@@ -89,5 +89,5 @@
 
 <% end %>
 <%else%>
-  <h1>no puede realizar esta accion, porfavor contactese</h1>
+  <h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

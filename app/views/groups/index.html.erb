@@ -3,7 +3,7 @@
 
 <p>
   <% form_tag groups_path, :method => 'get' do %>
-    Nombre: <%= text_field_tag :search, params[:search] %>
+    Nombre <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Buscar", :name => nil %>
   <% end %>
 </p>
@@ -31,9 +31,9 @@
               <td><%= link_to group.name, group %></td>
               <td><%=h group.volunteer %></td>
               <!--<td><#%= link_to 'Voluntarios', volunteers_url %></td>-->
-              <td><%= link_to "voluntarios", :controller => "volunteers", :group=> group.id %></td>              
+              <td><%= link_to "Ver Voluntarios", :controller => "volunteers", :group=> group.id %></td>              
               <td><%= link_to 'Editar', edit_group_url(group) %></td>
-              <td><%= link_to 'Eliminar', group, :confirm => 'Esta seguro que desea eliminar el grupo?', :method => :delete %></td>
+              <td><%= link_to 'Eliminar', group, :confirm => '¿Está seguro que desea eliminar el grupo?', :method => :delete %></td>
             </tr>
           <% end 
         end %>
@@ -43,5 +43,5 @@
   </tr>
 </table>
 <%else%>
-  <h1>no puede realizar esta accion, porfavor contactese</h1>
+  <h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

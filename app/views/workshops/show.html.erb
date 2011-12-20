@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td>
-      <b>Parroquia:</b>
+      <b>Parroquia</b>
     </td>
     <% @parish.each do |parish| 
       if parish.id == @workshop.parish_id
@@ -15,7 +15,7 @@
   </tr>
   <tr>
     <td>
-      <b>Parroco:</b>
+      <b>Párroco</b>
     </td>
 
 
@@ -24,7 +24,7 @@
   </tr>
   <tr>
     <td>
-      <b>Estado de parroquia:</b>
+      <b>Estado de Parroquia</b>
     </td>
 
 
@@ -33,13 +33,13 @@
   </tr>
   <tr>
     <td>
-      <b>Vicaria a la que pertenece:</b>
+      <b>Vicaria a la que Pertenece</b>
     </td> 
     <td><%=h  @vicariou.name_vicariou%></td>   
   </tr>
   <tr>
     <td>
-      <b>Observaciones:</b> 
+      <b>Observaciones</b> 
     </td>
     <td>
       <%=h @workshop.observations %>
@@ -53,7 +53,7 @@
 <table border="3" align="CENTER">
 
         <tr id ='head-table'>
-          <th>Curso Formacion</th>
+          <th>Curso de Formación</th>
           <th>Cantidad</th>
         </tr>
 
@@ -79,7 +79,7 @@
     <%  end %>
      </table> 
     <%  else  %>
-      <h1>No Tiene Cursos!!! </h1>
+      <h1>No tiene Cursos!!! </h1>
     <%  end %>
    </td>
   </tr>   
@@ -91,5 +91,5 @@
   </tr>
 </table>
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

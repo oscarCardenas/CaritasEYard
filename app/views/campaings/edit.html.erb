@@ -1,75 +1,75 @@
 <%if current_user%>
-<CENTER><h1>Actualizar Campa&ntilde;a</h1></center>
+  <CENTER><h1>Actualizar Campa&ntilde;a</h1></center>
 
-<% form_for(@campaing) do |f| %>
-  <%= f.error_messages %>
+  <% form_for(@campaing) do |f| %>
+    <%= f.error_messages %>
 
- <TABLE   ALIGN="CENTER">
+    <TABLE   ALIGN="CENTER">
 
-    <TR>
-      <td>* Nombre</td>
+      <TR>
+        <td><%= f.label :name, "* Nombre" %></td>
 
-      <TD >
-          <%= f.text_field :name %>
-      </TD>
-    </TR>
+        <TD >
+          <p class="word_wrap"><%= f.text_field :name %></p>
+        </TD>
+      </TR>
 
-    <TR>
-      <td>* Lugar</td> 
+      <TR>
+        <td><%= f.label :location, "* Lugar" %></td>   
 
-      <TD >        
-          <%= f.text_field :location %>        
-      </TD>
-    </TR>
+        <TD >        
+          <p class="word_wrap"><%= f.text_field :location %></p>
+        </TD>
+      </TR>
 
-    <TR>
-     <td>&nbsp&nbsp&nbspDescripción</td>
+      <TR>
+        <td>&nbsp&nbsp&nbspDescripción</td>
 
-      <TD >
-          <%= f.text_area :description , :size => "60x10", :style => "resize:none"  %>
-      </TD>
-    </TR>
+        <TD >
+          <p class="word_wrap"><%= f.text_area :description , :size => "60x10", :style => "resize:none"  %></p>
+        </TD>
+      </TR>
 
 
-    <TR>
-     <td>&nbsp&nbsp&nbspFecha de Inicio</td>
+      <TR>
+        <td>&nbsp&nbsp&nbspFecha de Inicio</td>
 
-      <TD >
+        <TD >
           <%= f.date_select :date_ini %>  
-      </TD>
-    </TR>
+        </TD>
+      </TR>
 
-    <TR>
-      <td>&nbsp&nbsp&nbspFecha de Finalización</td>
+      <TR>
+        <td>&nbsp&nbsp&nbspFecha de Finalización</td>
 
-      <TD >
+        <TD >
           <%= f.date_select :date_end %>
-      </TD>
-    </TR>
+        </TD>
+      </TR>
 
-    <TR>
-    <td>* Responsable</td>
+      <TR>
+        <td><%= f.label :responsible, "* Responsable" %></td>
 
-      <TD >
-          <%= f.text_field :responsible %>
-      </TD>
-    </TR>
-  
-          <tr align="right">
-      <td colspan="2">
-        <%= f.submit 'Actualizar' %>
-        <%= link_to 'Ver', :action => :show %>
-        <%= link_to 'Volver', campaings_path %>
-      </td>
-    </tr>
-    
-        <tr>
-      <td>*  Estos campos son obligatorios</td>
-    </tr>
-   </TABLE>   
+        <TD >
+          <p class="word_wrap"><%= f.text_field :responsible %></p>
+        </TD>
+      </TR>
 
-<% end %>
+      <tr align="right">
+        <td colspan="2">
+          <%= f.submit 'Actualizar' %>
+          <%= link_to 'Ver', :action => :show %>
+          <%= link_to 'Volver', campaings_path %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>*  Estos campos son obligatorios</td>
+      </tr>
+    </TABLE>   
+
+  <% end %>
 <%else%>
-  <h1>no puede realizar esta accion, porfavor contactese</h1>
+  <h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>
 

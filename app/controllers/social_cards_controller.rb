@@ -3,7 +3,7 @@ class SocialCardsController < ApplicationController
   # GET /social_cards.xml
   def index
 
-    @social_cards = SocialCard.find_all_by_state(true)
+    @social_cards = SocialCard.search(params[:search])
     @parishes = Parish.find(:all)
 
     respond_to do |format|
@@ -48,30 +48,8 @@ class SocialCardsController < ApplicationController
   # POST /social_cards
   # POST /social_cards.xml
   def create
-    #session[:social_card_params].deep_merge!(params[:social_card]) if params[:social_card] 
-   # @social_card = SocialCard.new(session[:social_card_params])
-  #  @social_card.current_step = session[:social_card_step]
- #   if @social_card.valid?
-#      if params[:back_button]
-#        @social_card.previous_step
-
-      #elsif @social_card.last_step?
-       # @social_card.save if @social_card.all_valid?
-      #else
-       # @social_card.next_step
-      #end
-      #session[:social_card_step] = @social_card.current_step
-    #end
-    #if @social_card.new_record?
-      #1.times {@social_card.helps.build}
-     # render "new"
-    #else
-     # session[:social_card_step] = session[:social_card_params] = nil
-     # flash[:notice] = "Ficha Social Creada Con Exito!"
-    #  redirect_to @social_card
-   # end
-  #end
     @social_card = SocialCard.new(params[:social_card])
+    @parishes = Parish.find(:all)
 
     respond_to do |format|
       if @social_card.save

@@ -17,7 +17,7 @@ class Notice < ActiveRecord::Base
   #put class methods here
   def self.search(search)
     if search
-      find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['LOWER(title) LIKE ?', search.downcase])
     else
       find(:all)
     end

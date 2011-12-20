@@ -5,33 +5,33 @@
 <table>
 
   <tr>
-    <td>Nombre</td>
+    <td><b>Nombre</b></td>
     <td><%=h @pastor.name %></td>
   </tr>
 
   <tr>
-    <td>Apellido paterno</td>
+    <td><b>Apellido Paterno</b></td>
     <td><%=h @pastor.primary_last_name %></td>
   </tr>
 
   <tr>
-    <td>Apellido materno</td>
+    <td><b>Apellido Materno</b></td>
     <td><%=h @pastor.second_last_name %></td>
   </tr>  
   <tr>
     <td>
 
-      Fecha de Nacimiento (dia/mes):</td><td>
+      <b>Fecha de Nacimiento (día/mes)</b></td><td>
       <%=h @pastor.date_of_birth.strftime("%d/%m") %>
     </td>
   </tr>
   <tr>
-    <td>Telefono</td>
+    <td><b>Teléfono</b></td>
     <td><%=h @pastor.phone_number %></td>
   </tr>  
   
   <tr>
-    <td>Celular</td>
+    <td><b>Celular</b></td>
     <td><%=h @pastor.cellphone_number %></td>
   </tr>  
   
@@ -44,5 +44,5 @@
 
 </table>
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

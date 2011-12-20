@@ -3,7 +3,7 @@
 
 <% form_tag volunteers_path, :method => 'get' do %>
   <p>
-    Parametro: <%= text_field_tag :search, params[:search] %>
+    Parámetro <%= text_field_tag :search, params[:search] %>
   <%#  <%= check_box_tag :state, params[:state] %>
     <%= submit_tag "Buscar", :name => nil %>
   </p>
@@ -18,7 +18,7 @@
             <%= button_to 'Crear Voluntario', new_volunteer_path %>
             </td>
             <td>
-             <%= link_to 'Export to Excel', volunteers_path(:xls) %>
+             <%= link_to 'Exportar a Excel', volunteers_path(:xls) %>
             </td>
         </tr>
       </table>
@@ -60,9 +60,9 @@
     
                   <td><%= link_to 'Editar', edit_volunteer_path(volunteer) %></td>
                   <%if volunteer.state == false %>
-                    <td><%= link_to 'Habilitar', volunteer, :confirm => 'Esta seguro que desea eliminar voluntario?', :method => :delete %></td>
+                    <td><%= link_to 'Habilitar', volunteer, :confirm => '¿Está seguro que desea eliminar el voluntario?', :method => :delete %></td>
                   <%else%>
-                    <td><%= link_to 'Eliminar', volunteer, :confirm => 'Esta seguro que desea eliminar voluntario?', :method => :delete %></td>
+                    <td><%= link_to 'Eliminar', volunteer, :confirm => '¿Está seguro que desea eliminar el voluntario?', :method => :delete %></td>
                   <%end%>
             </tr>
           
@@ -74,5 +74,5 @@
 </table>
 <br />
 <%else%>
-  <h1>no puede realizar esta accion, porfavor contactese</h1>
+  <h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

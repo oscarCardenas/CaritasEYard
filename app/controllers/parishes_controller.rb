@@ -2,7 +2,13 @@ class ParishesController < ApplicationController
   # GET /parishes
   # GET /parishes.xml
   def index
-    @parishes = Parish.search(params[:search]) 
+    @parishes = Parish.search(params[:search]).sort { |a,b| a.parish_name.downcase <=> b.parish_name.downcase  }
+    
+    @parishes.each do |singleparish|
+      if singleparish.workshop.nil?
+        singleparish.create_workshop
+      end
+    end
     
     respond_to do |format|
       format.html # index.html.erb

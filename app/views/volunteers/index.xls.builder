@@ -19,6 +19,8 @@ xml.Workbook({
         xml.Cell { xml.Data 'Nombre', 'ss:Type' => 'String' }
         xml.Cell { xml.Data 'Apellido Parterno', 'ss:Type' => 'String' }
         xml.Cell { xml.Data 'Apellido Materno', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Parroquia', 'ss:Type' => 'String' }
+        xml.Cell { xml.Data 'Vicaria', 'ss:Type' => 'String' }
         xml.Cell { xml.Data 'Profesion', 'ss:Type' => 'String' }
         xml.Cell { xml.Data 'Telefono', 'ss:Type' => 'String' }
         xml.Cell { xml.Data 'Celular', 'ss:Type' => 'String' }
@@ -26,6 +28,7 @@ xml.Workbook({
         xml.Cell { xml.Data 'Sexo', 'ss:Type' => 'String' }
         xml.Cell { xml.Data 'E-mail', 'ss:Type' => 'String' }
         xml.Cell { xml.Data 'Grupos', 'ss:Type' => 'String' }
+        
 
         
       end
@@ -36,6 +39,8 @@ xml.Workbook({
           xml.Cell { xml.Data volunteer.name, 'ss:Type' => 'String' }
           xml.Cell { xml.Data volunteer.last_name, 'ss:Type' => 'String' }
           xml.Cell { xml.Data volunteer.second_last_name, 'ss:Type' => 'String' }
+          xml.Cell { xml.Data Parish.find(volunteer.group.parish_id).parish_name, 'ss:Type' => 'String' }
+          xml.Cell { xml.Data Vicariou.find(Parish.find(volunteer.group.parish_id).vicariou_id).name_vicariou, 'ss:Type' => 'String' }
           xml.Cell { xml.Data volunteer.profession, 'ss:Type' => 'String' }
           xml.Cell { xml.Data volunteer.phone_number, 'ss:Type' => 'String' }
           xml.Cell { xml.Data volunteer.movil, 'ss:Type' => 'String' }

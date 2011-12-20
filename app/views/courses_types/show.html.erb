@@ -1,15 +1,15 @@
 <%if current_user%>
-<h1>Ver Curso de Formacion</h1>
+<h1>Ver Curso de Formación</h1>
 
 <table>
 
   <tr>
-    <td>Nombre</td>
+    <td><b>Nombre</b></td>
     <td><%=h @courses_type.name %></td>
   </tr>
 
   <tr>
-    <td width="250">Descripcion</td>
+    <td width="250"><b>Descripción</b></td>
     <td width="250"><%=h @courses_type.description %></td>
   </tr>
 
@@ -23,5 +23,5 @@
 
 </table>
 <%else%>
-  <h1>no puede realizar esta accion, porfavor contactese</h1>
+  <h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

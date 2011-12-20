@@ -3,45 +3,45 @@
   <table>
     <tr>
       <td>
-        <b>Nombre Parroquia:</b>
+        <b>Nombre de Parroquia</b>
       </td>
       <td><%=h @parish.parish_name %></td>
     </tr>
     <tr>
       <td>
-        <b>Ubicacion:</b>
+        <b>Ubicación</b>
       </td>
       <td><%=h @parish.ubication %></td>
     </tr>
     <tr>
       <td>
-        <b>Vicaria a la que pertenece:</b>
+        <b>Vicaria a la que Pertenece</b>
       </td>
       <td><%=h @vicariou.name_vicariou %></td>
     </tr>
     <tr>
       <td>
-        <b>Transporte:</b>
+        <b>Transporte</b>
       </td>
       <td><%=h @parish.transport %></td>
     </tr>
     <tr>
       <td>
-        <b>Telefono:</b>
+        <b>Teléfono de la Parroquia</b>
       </td>
       <td><%=h @parish.telephone %></td>
     </tr>
     <tr>
-        <td><b>Contacto:</b></td>
+        <td><b>Contacto</b></td>
         <td><%=h @parish.contact %></td>
       </tr>
       <tr>
-        <td><b>Telefono del Contacto:</b></td>
+        <td><b>Teléfono del Contacto</b></td>
         <td><%=h @parish.contact_telephone %></td>
       </tr>
     <tr>
       <td>
-        <b>Nombre del Parroco:</b>
+        <b>Nombre del Párroco</b>
       </td>
       <td><%=h @pastor.name+" "+@pastor.primary_last_name+" "+@pastor.second_last_name %></td>
     </tr>
@@ -56,7 +56,7 @@
       <% if @parish.parish_photo %>
       <td><%=  image_tag url_for_file_column("parish", "parish_photo"), :size=>"300x200" %></td>
       <% else %>
-      <td>No Esta Disponible La Fotografia</td>
+      <td>No está disponible la fotografía</td>
       <% end   %>
     </tr>
   </table>
@@ -65,5 +65,5 @@
 <%= link_to 'Editar', edit_parish_path(@parish) %> |
 <%= link_to 'Volver', parishes_path %>
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

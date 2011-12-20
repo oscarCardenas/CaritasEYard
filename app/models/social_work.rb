@@ -18,20 +18,17 @@ class SocialWork < ActiveRecord::Base
   validates_length_of :social_work, :maximum => 255
   validates_length_of :responsible, :maximum => 255
   validates_length_of :location, :maximum => 255
-  validates_length_of :phone, :maximum => 30
-  validates_length_of :movil, :maximum => 30
-  validates_length_of :email, :maximum => 255
+  validates_length_of :phone, :maximum => 50
+  validates_length_of :movil, :maximum => 50
+  validates_length_of :email, :maximum => 150
   validates_length_of :transport, :maximum => 255
-  validates_length_of :responsible_filling, :maximum => 255
+  validates_length_of :responsible_filling, :maximum => 150
   validates_length_of :name, :maximum => 255
   
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{0,50})\Z/i, :allow_blank => true  
-
-
   #put class methods here
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['LOWER(name) LIKE ?', search.downcase])
     else
       find(:all)
     end

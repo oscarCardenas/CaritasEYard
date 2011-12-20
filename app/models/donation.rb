@@ -10,11 +10,11 @@ class Donation < ActiveRecord::Base
   #put validates here
   validates_presence_of :name
   validates_presence_of :amount
-  validates_format_of :name, :with => /^([a-zA-Z\ ]{3,50})$/i
+  #validates_format_of :name, :with => /^([a-zA-Z\ ]{3,50})$/i
   #put class methods here
   def self.search(search,campaing)
     if search       
-          find(:all, :conditions => ['name LIKE ? OR last_name LIKE ? OR second_last_name LIKE ? OR profession LIKE ?', "%#{search}%","%#{search}%","%#{search}%","%#{search}%"])           
+          find(:all, :conditions => ['LOWER(name) LIKE ? OR LOWER(last_name) LIKE ? OR LOWER(second_last_name) LIKE ? OR LOWER(profession) LIKE ?', search.downcase,search.downcase,search.downcase,search.downcase])           
     else     
       if campaing
           find(:all, :conditions => ['campaing_id = ?', "#{campaing}"])   

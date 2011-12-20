@@ -1,5 +1,7 @@
 <div id="content-wrap">
+  <%= render :partial => "main_page/acordeon" %>
   <div id="main" >
+
       <center><H2><%= @notice.title%></h2></center>
       <br>
           <% if @notice.notice_photo %>
@@ -12,6 +14,7 @@
       <p class="mostrarContent">
             <%= @notice.description %>
       </p>
-     <%=link_to "Volver", :controller => "notices", :action => "index_public",:id =>'find'%>
+     <p class="word_wrap"><%=link_to "Volver", :controller => "notices", :action => "index_public",:id =>'find'%></p>
   </div>
-    <%= render :partial => "main_page/acordeon" %>
+
+

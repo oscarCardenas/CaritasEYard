@@ -1,5 +1,5 @@
 <%if current_user%>
-<h2>Informacion De La Parroquia</h2>
+<h2>Información de la Parroquia</h2>
   <table width="50%" border="0">
   <tr>
     <td width="15"> Parroquia</td>
@@ -11,7 +11,7 @@
   </tr>
 </table>
 <br />
- <h2>Informacion Personal</h2>
+ <h2>Información Personal</h2>
 <table border="0">
   <tr>
     <td width="15%"><p>Nombre</p></td>
@@ -20,29 +20,25 @@
     <td width="35%"><%= h @social_card.marital_status %></td>
    </tr>
   <tr>
-     <td width="15%">&nbsp;</td>
-    <td width="35%">&nbsp;</td>
+    <td>CI</td>
+    <td><%= h @social_card.identity_card %></td>
     <td width="15%">Sexo</td>
     <td width="35%"><%=h @social_card.gender %></td>
   </tr>
   <tr>
-    <td>Fecha De Nacimiento</td>
+    <td>Fecha de Nacimiento</td>
     <td><%=h @social_card.birthday %></td>
-    <td >Lugar De Nacimiento</td>
+    <td >Lugar de Nacimiento</td>
     <td ><%= h @social_card.birthday_location %></td>
   </tr>
   <tr>
-    <td>CI</td>
-    <td><%= h @social_card.identity_card %></td>
     <td >Domicilio</td>
     <td ><%= h @social_card.address %></td>
-  </tr>
-  <tr>
-    <td>Referencia De Ubicacion</td>
+    <td>Referencia de Ubicación</td>
     <td colspan="5"><%= h @social_card.location_reference %></td>
   </tr>
   <tr>
-    <td>Telefono Fijo</td>
+    <td>Teléfono Fijo</td>
     <td><%= h @social_card.phone %></td>
     <td >Celular</td>
     <td ><%= h @social_card.movil %></td>
@@ -50,13 +46,13 @@
   <tr>
     <td>Grado Escolar</td>
     <td><%= h @social_card.grade_school %></td>
-    <td >Ocupacion</td>
+    <td >Ocupación</td>
     <td ><%= h @social_card.occupation %></td>
   </tr>
   <tr>
-    <td>Total De Miembros En la Familia </td>
+    <td>Total de Miembros en la Familia </td>
     <td><%=h @social_card.family_members %></td>
-    <td >Parroquia A la Que Pertenece</td>
+    <td >Parroquia a la que Pertenece</td>
     <td ><%= h @social_card.parish_belongs %></td>
   </tr>
 
@@ -69,10 +65,10 @@
     <td colspan="5"><%= h @social_card.family_history %></td>
   </tr>
 </table>
-  <h2>Informacion De Referencia</h2>
+  <h2>Información de Referencia</h2>
   <table border="0">
   <tr>
-    <td width="21%">Persona De Referencia</td>
+    <td width="21%">Persona de Referencia</td>
     <td><%=  h @social_card.reference_person %></td>
     <td>Edad</td>
     <td><%= h @social_card.age_reference %></td>
@@ -82,13 +78,13 @@
     <td colspan="3"><%=  h @social_card.address_reference %></td>
   </tr>
   <tr>
-    <td>Telefono</td>
+    <td>Teléfono</td>
     <td width="29%"><%=  h @social_card.phone_reference %></td>
     <td width="21%">Celular</td>
     <td width="29%"><%=  h @social_card.movil_reference %></td>
   </tr>
   <tr>
-    <td>Ocupacion</td>
+    <td>Ocupación</td>
     <td colspan="3"><%= h @social_card.occupation_reference %></td>
   </tr>
 </table>
@@ -101,28 +97,28 @@
   </tr>
   
   <tr>
-    <td><p>Ha Recibido Ayuda En Otras Instituciones O Parroquias?<br />
+    <td><p>¿Ha recibido ayuda en otras Instituciones o Parroquias?<br />
     </p></td>
     <td><%= h @social_card.did_you_get_another_help%></td>
   </tr>
   <tr>
-    <td>De Que tipo?
+    <td>¿De qué tipo?
     </td>
      <td><%= h @social_card.what_kind%></td>
   </tr>
   <tr>  
-      <td><%= "Fotografia de la persona" %></td>
+      <td><%= "Fotografía de la Persona" %></td>
       <% if @social_card.social_card_photo %>
       <td><%=  image_tag url_for_file_column("social_card", "social_card_photo"), :size=>"300x200" %></td>
       <% else %>
-      <td>No Esta Disponible La Fotografia</td>
+      <td>No está disponible la fotografía</td>
       <% end   %>
     </tr>
 </table>
   
   
 <%= link_to 'Editar', edit_social_card_path(@social_card) %> |
-<%= link_to 'Atras', social_cards_path %>
+<%= link_to 'Volver', social_cards_path %>
 <%else%>
-  <h1>no puede realizar esta accion, porfavor contactese</h1>
+  <h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

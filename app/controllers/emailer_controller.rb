@@ -13,18 +13,16 @@ class EmailerController < ApplicationController
  end
  def index
  end
- def index_contact_us
+ def contact_us
  end
- def sendmailContact
+ def sendmailContactUs
     email = params["email"]
-	  recipient = email["recipient"]
-	  subject = email["subject"]
+	  emailContact = email["emailContact"]
+	  nameContact = email["nameContact"]
 	  message = email["message"]
-      Emailer.deliver_contact_us(recipient, subject, message)
+      Emailer.deliver_email_contact_us(emailContact, nameContact, "Alguien quiere contactarse con Caritas", message)
       return if request.xhr?
-      contact_us
+
  end
-  def contact_us
-   render :text => 'Mensaje Enviado Con Exito!'
- end
+
 end

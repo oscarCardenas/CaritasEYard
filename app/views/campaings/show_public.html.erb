@@ -1,23 +1,22 @@
 <div id="content-wrap">
 
-
-  
   <div id="main" >
-          <CENTER><h2><%= @campaing.name %></h2></center>          
+        <%= render :partial => "main_page/campaing_photo" %>
+          <CENTER><h2><%= @campaing.name %></h2></center>
           
           <br/>
           <br/>
           <p class="mostrarContent">
-            <b>Fecha de inicio:<%= @campaing.date_ini %></b>  
+            <b>Fecha de Inicio:</b> <%= @campaing.date_ini %>  
           </p>                   
 
           <p class="mostrarContent">
-          <b>Descripcion:</b>
+          <b>Descripción</b>
           <br/>
-          <%=h @campaing.description %>
+          <p class="word_wrap"><%=h @campaing.description %> </p>
           </p>
           <p class="mostrarContent">
-            <%= link_to "Ver A Detalle", @campaing %>            
+            <%= link_to "Ver a Detalle", @campaing %>            
           </p>          
           
   </div>

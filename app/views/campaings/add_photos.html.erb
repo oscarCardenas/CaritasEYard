@@ -6,7 +6,7 @@
 <TD align="center">
 <center>
   <p>
-  <b>Nombre: </b>
+  <b>Nombre </b>
   <%=h @campaing.name %>
  </p>
  </center>
@@ -14,7 +14,7 @@
 </TR>
 
 <tr align="left">
-      <td><%= link_to 'Eliminar fotos', :confirm => "esta por eliminar todas las imagenes de esta campaña, desea continuar??", :controller => "campaings", :action => "destroy_all_photos", :id => @campaing  %> </td>
+      <td><%= link_to 'Eliminar todas las fotos', :confirm => "¿Está seguro que desea eliminar todas las fotos de la campaña?", :controller => "campaings", :action => "destroy_all_photos", :id => @campaing  %> </td>
 </tr>
 
 <tr align="center">

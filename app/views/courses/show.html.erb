@@ -4,22 +4,22 @@
 <TABLE ALIGN="CENTER">
 
   <tr>
-    <td><b>Name:</b></td>
+    <td><b>Nombre</b></td>
     <td><%=h @course.name %></td>
   </tr>
 
   <tr>
-  <td><b>Responsible:</b></td>
+  <td><b>Responsable</b></td>
   <td><%=h @course.responsible %></td>
   </tr>
 
   <tr>  
-    <td><b>Date ini:</b></td>
+    <td><b>Fecha Inicial</b></td>
     <td><%=h @course.date_ini %></td>
   </tr>
 
   <tr>
-    <td><b>Description:</b></td>
+    <td><b>Descripción</b></td>
     <td><%=h @course.description %></td>
   </tr>
 <tr align="right">
@@ -46,4 +46,8 @@
   </tr>
   <% end %>
  </table>
+
+
+<%else%>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

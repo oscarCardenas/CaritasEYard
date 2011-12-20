@@ -1,3 +1,4 @@
+
 <div id="content-wrap">
 
   <div id="main" >
@@ -5,7 +6,7 @@
 
 <p>
   <% form_tag  :controller => "campaings", :action => "index_public",:id =>'find', :method => 'get' do %>
-    Nombre: <%= text_field_tag :search, params[:search] %>
+    Nombre <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Buscar", :name => nil %>
   <% end %>
 </p>
@@ -20,21 +21,17 @@
         <tr id = 'head-table'>
           <th>Nombre</th>
           <th>Lugar</th>
-          <th>Descripcion</th>
-          <th>Fecha de inicio</th>
-          <th>Fecha de finalizacion</th>
-          <th>Accion</th>
-
+          <th>Fecha de Inicio</th>
+          <th>Fecha de Finalización</th>
         </tr>
 
         <% @campaings.each do |campaing| %>
           <tr>
             <td><%=link_to campaing.name, :controller => "campaings", :action => "show_public", :id =>campaing %></td>
-            <td><%=h campaing.location %></td>
-            <td><%=h campaing.description %></td>
+            <td><p class="word_wrap"><%=h campaing.location %></p></td>
             <td><%=h campaing.date_ini %></td>
             <td><%=h campaing.date_end %></td>
-            <td><%= link_to 'Ver',  :controller => "campaings", :action => "show_public", :id =>campaing %></td>
+
         <% end %>
           
       </table>

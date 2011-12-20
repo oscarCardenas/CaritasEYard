@@ -11,8 +11,10 @@ class Group < ActiveRecord::Base
   file_column :group_photo
   
   #put validates here
-  validates_presence_of :name, :message => ' no puede estar vacio'    
+  validates_presence_of :name  
   validates_presence_of :parish_id
+  
+  validates_length_of :name, :maximum => 50
 
   validates_file_format_of :group_photo, :in => ["gif", "jpg", "png"]
   validates_filesize_of :group_photo, :in => 1.kilobytes..3000.kilobytes
@@ -20,7 +22,7 @@ class Group < ActiveRecord::Base
   #put class methods here
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['LOWER(name) LIKE ?', search.downcase])
     else
       find(:all)
     end

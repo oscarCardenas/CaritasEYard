@@ -2,8 +2,8 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
-    @courses = Course.findf(params[:course_type], params[:workshop])
-
+    @courses = Course.findf(params[:course_type], params[:workshop])    
+    @courses_report=Course.finda(params[:report])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @courses }

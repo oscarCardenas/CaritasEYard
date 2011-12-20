@@ -6,11 +6,11 @@
 
 
 <table>
-<tr><td>*Nombre Vicaria</td><td><%= f.text_field :name_vicariou %></td></tr>
-<tr><td>*Ubicacion</td><td><%= f.text_field :ubication %></td></tr>
-<tr><td>*Transporte</td><td><%= f.text_field :transport %></td></tr>
-<tr><td>*Telefono</td><td><%= f.text_field :telephone %></td></tr>
-<tr><td>*Nombre del Vicario</td><td>
+<tr><td><%= f.label :name_vicariou, "*&nbsp;Nombre de Vicaria" %></td><td><%= f.text_field :name_vicariou %></td></tr>
+<tr><td><%= f.label :ubication, "*&nbsp;Ubicación" %></td><td><%= f.text_field :ubication %></td></tr>
+<tr><td>&nbsp;&nbsp;Transporte</td><td><%= f.text_field :transport %></td></tr>
+<tr><td><%= f.label :telephone, "*&nbsp;Teléfono" %></td><td><%= f.text_field :telephone %></td></tr>
+<tr><td>*&nbsp;Nombre del Vicario</td><td>
     <select name="vicariou[pastor_id]" style="width: 195px">      
     <% if @pastor
     @pastor.each do |pastor| %>
@@ -36,7 +36,7 @@
 
 <% end %>
 <%else%>
-  <h1>no puede realizar esta accion, porfavor contactese</h1>
+  <h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>
 
 

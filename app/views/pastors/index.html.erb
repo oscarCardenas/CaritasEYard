@@ -3,7 +3,7 @@
 
 <p>
 <% form_tag pastors_path, :method => 'get' do %>
-      Nombre: <%= text_field_tag :search, params[:search] %>
+      Parámetro <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Buscar", :name => nil %>
       <% end %>
 </p>
@@ -11,7 +11,7 @@
   <table>
     <tr>          
       <td>
-        <%= link_to 'Reporte de Parroco por Parroquia', pastors_path(:xls) %>
+        <%= link_to 'Reporte de Párroco por Parroquia', pastors_path(:xls) %>
       </td> 
     </tr>
   </table>
@@ -28,11 +28,11 @@
     <table border="3">
       <tr id = 'head-table'>
         <th>Nombre</th>
-        <th>Apellido paterno</th>
-        <th>Apellido materno</th>
-        <th>Telefono</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Teléfono</th>
         <th>Celular</th>
-        <th colspan="3">Accion</th>
+        <th colspan="3">Acciones</th>
       </tr>
 
       <% @pastors.each do |pastor| %> 
@@ -44,7 +44,7 @@
         <td><%= h pastor.phone_number %></td>
         <td><%= h pastor.cellphone_number %></td>
         <td><%= link_to 'Editar', edit_pastor_path(pastor) %></td>
-        <td><%= link_to 'Eliminar', pastor, :confirm => 'Esta Seguro Que Desea Eliminar A Este Parroco?', :method => :delete %></td>
+        <td><%= link_to 'Eliminar', pastor, :confirm => '¿Está seguro que desea eliminar al párroco?', :method => :delete %></td>
         
       </tr>
     <% end %>
@@ -56,5 +56,5 @@
 </table>
 <br />
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>

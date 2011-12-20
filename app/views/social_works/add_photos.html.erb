@@ -5,14 +5,14 @@
 <TR>
 <TD align="center">
   <p>
-  <b>Nombre: </b>
+  <b>Nombre </b>
   <%=h @social_work.name %>
  </p>
 </TD>
 </TR>
 
 <tr>
-    <td><%= link_to 'Eliminar Fotos',:confirm => "esta por eliminar todas las imagenes de esta campaña, desea continuar??", :controller => "social_works", :action=>"destroy_all_photos", :id => @social_work %></td>
+    <td><%= link_to 'Eliminar todas las fotos',:confirm => "¿Está seguro que desea eliminar todas las fotos de la Obra Social?", :controller => "social_works", :action=>"destroy_all_photos", :id => @social_work %></td>
 </tr>
 
 <tr>

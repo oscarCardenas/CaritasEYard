@@ -5,7 +5,7 @@
     <th>Nombre</th>
     <th>Responsable</th>
     <th>Fecha Inicial</th>
-    <th colspan="3">Acciones</th>
+    <th colspan="2">Acciones</th>
   </tr>
 
 <% @courses.each do |course| %>
@@ -15,8 +15,7 @@
     <td><%=h course.date_ini %></td>
     
     <td><%= link_to 'Editar', edit_course_path(course) %></td>
-    <td><%= link_to 'Eliminar', course, :confirm => 'Are you sure?', :method => :delete %></td>    
-    <td><%= link_to 'Reporte', :controller=>'courses.xls',:course_type=>course.id,:workshop=>course.workshop_id %></td>
+    <td><%= link_to 'Eliminar', course, :confirm => '¿Está seguro que desea eliminar el curso?', :method => :delete %></td>    
   </tr>
 <% end %>
 </table>
@@ -24,5 +23,5 @@
 <br />
 
 <%else%>
-<h1>no puede realizar esta accion, porfavor contactese</h1>
+<h2>No puede realizar esta acción, por favor contáctese con el administrador del sistema</h2>
 <%end%>
